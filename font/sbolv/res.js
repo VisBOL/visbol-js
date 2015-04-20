@@ -6,8 +6,6 @@ define([ 'visbol' ], function(visbol) {
 
     function createGeometry(boxSize) {
 
-        var headWidth = boxSize.x / 4.0;
-
         return {
             boxBottomLeft: Vec2(0, boxSize.y),
             boxBottomRight: Vec2(boxSize.x, boxSize.y),

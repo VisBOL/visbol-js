@@ -1,0 +1,15 @@
+{
+    "name": "sbolv",
+
+    "glyphs": [
+        "cds",
+        "res",
+        "user-defined",
+        "promoter",
+        "terminator",
+        "origin-of-replication",
+        "origin-of-transfer"
+    ]
+}
+
+
