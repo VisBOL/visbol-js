@@ -16,25 +16,6 @@ define([ 'visbol' ], function(visbol) {
 
         group.add(glyph);
 
-        var text = design.surface.text('');
-
-        text.font({ anchor: 'middle', weight: 'bold' });
-
-        text.build(true);
-
-        var questionMark = text.tspan('?');
-
-        questionMark.attr('alignment-baseline', 'middle');
-
-        text.transform({ matrix:
-            Matrix.toSVGString(
-                Matrix.translation(Vec2(boxSize.x / 2.0, boxSize.y / 2.0)))
-        });
-
-        text.build(false);
-
-        group.add(text);
-
         return {
             glyph: group,
             backboneOffset: boxSize.y / 2.0
