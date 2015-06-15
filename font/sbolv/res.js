@@ -33,7 +33,7 @@ define([ 'visbol' ], function(visbol) {
         var glyph = design.surface.path(path);
 
         glyph.attr('stroke', 'black');
-        glyph.attr('fill', glyphObject.color || '#cee');
+        glyph.attr('fill', glyphObject.color || '#03c03c');
 
         return {
             glyph: glyph,
