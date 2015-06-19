@@ -33,7 +33,7 @@ define([ 'visbol' ], function(visbol) {
 
         return {
             glyph: glyph,
-            backboneOffset: boxSize.y
+            backboneOffset: boxSize.y * 0.5
         };
     }
 
