@@ -35,7 +35,7 @@ define([ 'visbol' ], function(visbol) {
 
         var glyph = design.surface.path(path);
 
-        glyph.attr('stroke', glyphObject.color || '#77dd77');
+        glyph.attr('stroke', glyphObject.color || '#03c03c');
         glyph.attr('stroke-width', glyphObject.thickness || '5px');
         glyph.attr('stroke-linejoin', 'round');
         glyph.attr('fill', 'none');
@@ -49,6 +49,10 @@ define([ 'visbol' ], function(visbol) {
     return {
 
         render: renderGlyph,
+
+        insets: {
+            top: 0.2
+        }
 
     };
 });
