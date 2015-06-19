@@ -48,7 +48,7 @@ define([ 'visbol' ], function(visbol) {
 
     return {
 
-        render: renderGlyph
+        render: renderGlyph,
 
     };
 });
