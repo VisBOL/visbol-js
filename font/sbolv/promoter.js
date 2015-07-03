@@ -6,7 +6,7 @@ define([ 'visbol' ], function(visbol) {
 
     function createGeometry(boxSize) {
 
-        var arrowForkSize = Vec2(boxSize.x / 4.0,
+        var arrowForkSize = Vec2(boxSize.y / 4.0,
                                  boxSize.y / 4.0);
 
         return {
