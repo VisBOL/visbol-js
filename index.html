@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta name="description" content="Design visualizer for synthetic biology designs using the SBOL Visual glyph set.  Supports generation of designs from the Synthetic Biology Open Language version 1 and 2.">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>VisBOL Design Visualizer</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/visbol.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+<a href="https://github.com/udp/visbol-js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+  <div class="page-header text-center">
+    <img src="img/visbol.png" id="header-image" />
+  </div> 
+        <div id="split">
+
+            <div id="leftPane">
+
+                <img src="img/generate-your-design.png" id="generate-your-design" />
+
+                <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#sourceSBOL">SBOL</a></li>
+                    <li class="active"><a data-toggle="tab" href="#sourcePigeon">Pigeon</a></li>
+                    <li><a data-toggle="tab" href="#sourceGenbank">GenBank</a></li>
+                    <li class="pull-right"><a data-toggle="tab" href="#sourceSBDL"><b>Display List</b></a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane" id="sourceSBOL">
+                        <div class="editor"></div>
+                    </div>
+
+                    <div class="tab-pane active" id="sourcePigeon">
+                        <div class="editor"></div>
+                        <div>
+                            <p></p>
+                            <p>
+                                NB. VisBOL support for Pigeon-style syntax is experimental, and not all glyphs are supported.  For the full-featured Pigeon visualizer and more information about Pigeon, visit <a href="http://pigeoncad.org">pigeoncad.org</a>.
+                            </p>
+                            <p>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="sourceGenbank">
+                        <div class="editor"></div>
+                    </div>
+
+
+                    <div class="tab-pane" id="sourceSBDL">
+                        <div class="editor"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="rightPane">
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#svg">Design</a></li>
+                    <li><a data-toggle="tab" href="#download">Download</a></li>
+                    <li><a data-toggle="tab" href="#about">About</a></li>
+                    <li><a data-toggle="tab" href="#examples">Examples</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="svg">
+
+                        <img src="img/will-update.png" id="will-update" />
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <strong>Font</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Proportional</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <strong>Scale</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="row" id="options">
+
+                            <div class="col-md-4">
+                                <select id="font">
+                                    <option value="sbolv">SBOL Visual</option>
+                                    <option value="sbolv-improved-directionality">SBOL Visual with improved directionality</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="checkbox" id="proportional" checked>
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="range" id="scale" min="0" max="30" value="15" checked>
+                            </div>
+                        </div>
+
+                        <div style="clear: both;"></div>
+
+                        <div>
+                            <svg id="design" style="width: 640px; height: 480px;"></svg>
+                        </div>
+
+                        <div id="designLoading" style="display: none;">
+                            <em>Loading design...</em>
+                        </div>
+
+                        <div id="designError" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="download">
+
+                        <h3>SVG</h3>
+
+                        <p>
+                            An SVG file can be resized with no reduction in quality, and is ideal for embedding in modern Web pages and other publications.
+                        </p>
+                        <button class="btn btn-info" id="downloadSVG">Download SVG</button><br />
+
+
+                        <h3>PNG</h3>
+
+                        <p>
+                            A PNG file is an image with a fixed resolution.  Use PNG files to embed designs in documents where SVG files are not supported.
+                        </p>
+			<p>Note: due to inconsistencies in canvas SVG rendering, PNG export currently only works reliably in Firefox.</p>
+                        <button class="btn btn-info" id="downloadPNG">Download PNG</button>
+
+                        <h3>Display List</h3>
+
+                        <p>
+                            A display list is not an image, but a description of the design that can be re-loaded later here in the design visualizer.  Use this to save designs for future modifications.
+                        </p>
+                        <button class="btn btn-info" id="downloadSBDL">Download Display List</button>
+
+                    </div>
+                    <div class="tab-pane" id="about">
+			<h3>About VisBOL</h3>
+			<p>
+			VisBOL is an open source project providing visualization of <a target="_blank" href="http://syntheticbiology.org">synthetic biology</a> designs using the <a target="_blank" href="http://sbolstandard.org/sbol-visual/">SBOL Visual</a> glyph set. VisBOL currently supports generation of designs from <a target="_blank" href="http://sbolstandard.org">SBOL</a> documents, <a target="_blank" href="http://pigeoncad.org">Pigeon</a> notation, and <a target="_blank" href="http://www.insdc.org/files/feature_table.html">GenBank features</a>.</p>
+
+<p>VisBOL was developed as the dissertation project of <a href="mailto:j.a.mclaughlin@ncl.ac.uk">James Alastair McLaughlin</a> for the degree of BSc Computing Science at <a target="_blank" href="http://ncl.ac.uk">Newcastle University</a>, supervised by <a target="_blank" href="http://www.ncl.ac.uk/computing/people/profile/anil.wipat">Prof. Anil Wipat</a> in collaboration with the <a target="_blank" href="http://ico2s.org">ICOS group</a> and <a href="mailto:turingatemyhamster@gmail.com">Turing Ate My Hamster LTD</a>. 
+			</p>
+			<p>The VisBOL source code is available at <a target="_blank" href="http://github.com/visbol">GitHub</a>.</p>
+			
+				
+		    </div>
+
+                    <div class="tab-pane" id="examples">
+
+<table class="table">
+
+<th>Example</th>
+<th>SBOL</th>
+<th>Display List</th>
+<th>Pigeon</th>
+
+<tr>
+
+<td>PoPS Device</td>
+
+<td>
+<a href="PoPS_Device.xml" target="_blank">Download</a>
+</td>
+
+<td>
+<pre>
+{
+  &quot;joins&quot;: [],
+  &quot;interactions&quot;: [],
+  &quot;components&quot;: [
+    {
+      &quot;segments&quot;: [
+        {
+          &quot;name&quot;: &quot;BBa_F2620&quot;,
+          &quot;sequence&quot;: [
+            {
+              &quot;type&quot;: &quot;promoter&quot;,
+              &quot;name&quot;: &quot;pTetR&quot;,
+              &quot;id&quot;: &quot;promoter-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 1,
+              &quot;end&quot;: 55
+            },
+            {
+              &quot;type&quot;: &quot;res&quot;,
+              &quot;name&quot;: &quot;BBa_B0034&quot;,
+              &quot;id&quot;: &quot;res-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 56,
+              &quot;end&quot;: 68
+            },
+            {
+              &quot;type&quot;: &quot;cds&quot;,
+              &quot;name&quot;: &quot;luxR&quot;,
+              &quot;id&quot;: &quot;cds-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 69,
+              &quot;end&quot;: 770
+            },
+            {
+              &quot;type&quot;: &quot;terminator&quot;,
+              &quot;name&quot;: &quot;BBa_B0015&quot;,
+              &quot;id&quot;: &quot;terminator-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 771,
+              &quot;end&quot;: 900
+            },
+            {
+              &quot;type&quot;: &quot;promoter&quot;,
+              &quot;name&quot;: &quot;pLuxR&quot;,
+              &quot;id&quot;: &quot;promoter-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 901,
+              &quot;end&quot;: 956
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  &quot;entities&quot;: []
+}
+</pre>
+</td>
+
+<td>
+<pre>
+p pTetR
+r BBa_B0034
+c luxR
+t BBa_B0015
+p luxR
+# Arcs
+</pre>
+</td>
+
+</tr>
+
+<tr>
+
+<td>Subtilin Receiver</td>
+
+<td>
+<a href="Subtilin_Receiver.xml" target="_blank">Download</a>
+</td>
+
+<td>
+<pre>
+{
+  &quot;joins&quot;: [],
+  &quot;interactions&quot;: [],
+  &quot;components&quot;: [
+    {
+      &quot;segments&quot;: [
+        {
+          &quot;name&quot;: &quot;SubtilinReceiver_spaRK_separated&quot;,
+          &quot;sequence&quot;: [
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;PolyA_Tail&quot;,
+              &quot;id&quot;: &quot;user-defined-7&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 1,
+              &quot;end&quot;: 5
+            },
+            {
+              &quot;type&quot;: &quot;rts&quot;,
+              &quot;name&quot;: &quot;EcoRI&quot;,
+              &quot;id&quot;: &quot;rts-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 6,
+              &quot;end&quot;: 11
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;Shim_PspaRK&quot;,
+              &quot;id&quot;: &quot;user-defined-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 12,
+              &quot;end&quot;: 21
+            },
+            {
+              &quot;type&quot;: &quot;promoter&quot;,
+              &quot;name&quot;: &quot;PspaRK&quot;,
+              &quot;id&quot;: &quot;promoter-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 22,
+              &quot;end&quot;: 132
+            },
+            {
+              &quot;type&quot;: &quot;res&quot;,
+              &quot;name&quot;: &quot;RBS_SpaR&quot;,
+              &quot;id&quot;: &quot;res-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 133,
+              &quot;end&quot;: 142
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;Shim_SpaR&quot;,
+              &quot;id&quot;: &quot;user-defined-3&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 143,
+              &quot;end&quot;: 149
+            },
+            {
+              &quot;type&quot;: &quot;cds&quot;,
+              &quot;name&quot;: &quot;spaR&quot;,
+              &quot;id&quot;: &quot;cds-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 150,
+              &quot;end&quot;: 815
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;Shim_SpaR&quot;,
+              &quot;id&quot;: &quot;user-defined-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 816,
+              &quot;end&quot;: 885
+            },
+            {
+              &quot;type&quot;: &quot;res&quot;,
+              &quot;name&quot;: &quot;RBS_SpaK&quot;,
+              &quot;id&quot;: &quot;res-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 886,
+              &quot;end&quot;: 896
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;Shim_SpaK&quot;,
+              &quot;id&quot;: &quot;user-defined-8&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 897,
+              &quot;end&quot;: 906
+            },
+            {
+              &quot;type&quot;: &quot;cds&quot;,
+              &quot;name&quot;: &quot;spaK&quot;,
+              &quot;id&quot;: &quot;cds-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 907,
+              &quot;end&quot;: 2289
+            },
+            {
+              &quot;type&quot;: &quot;terminator&quot;,
+              &quot;name&quot;: &quot;rrnB&quot;,
+              &quot;id&quot;: &quot;terminator-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2290,
+              &quot;end&quot;: 2369
+            },
+            {
+              &quot;type&quot;: &quot;terminator&quot;,
+              &quot;name&quot;: &quot;rrnO&quot;,
+              &quot;id&quot;: &quot;terminator-2&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2370,
+              &quot;end&quot;: 2455
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;rrnO_shim&quot;,
+              &quot;id&quot;: &quot;user-defined-9&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2456,
+              &quot;end&quot;: 2460
+            },
+            {
+              &quot;type&quot;: &quot;promoter&quot;,
+              &quot;name&quot;: &quot;PspaS&quot;,
+              &quot;id&quot;: &quot;promoter-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2461,
+              &quot;end&quot;: 2518
+            },
+            {
+              &quot;type&quot;: &quot;res&quot;,
+              &quot;name&quot;: &quot;RBS_SpaS&quot;,
+              &quot;id&quot;: &quot;res-3&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2519,
+              &quot;end&quot;: 2526
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;Shim_RBS&quot;,
+              &quot;id&quot;: &quot;user-defined-4&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2527,
+              &quot;end&quot;: 2534
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;met_codon&quot;,
+              &quot;id&quot;: &quot;user-defined-5&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2535,
+              &quot;end&quot;: 2537
+            },
+            {
+              &quot;type&quot;: &quot;rts&quot;,
+              &quot;name&quot;: &quot;NheI&quot;,
+              &quot;id&quot;: &quot;rts-1&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2538,
+              &quot;end&quot;: 2543
+            },
+            {
+              &quot;type&quot;: &quot;user-defined&quot;,
+              &quot;name&quot;: &quot;PolyA_Tail&quot;,
+              &quot;id&quot;: &quot;user-defined-6&quot;,
+              &quot;strand&quot;: &quot;positive&quot;,
+              &quot;start&quot;: 2544,
+              &quot;end&quot;: 2548
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  &quot;entities&quot;: []
+}
+</pre>
+</td>
+
+<td>
+<pre>
+? Poly_Tail 1
+? EcoRI 1
+? Shim_PspaRK 1
+p PspaRK 
+r RBS_SpaR 10
+? Shim_SpaR
+c spaR
+? Shim_SpaR
+? Shim_SpaK
+c spaK
+t rrnB
+t rrnO
+? rrnO_shim
+p pSpaS
+r RBS_SpaS
+? Shim_RBS
+? Met
+? NheI
+? PolyA_Tail
+# Arcs
+spaR ind pSpaS
+spaK ind spaR
+</pre>
+</td>
+
+</tr>
+
+<tr>
+
+<td>Toggle Switch</td>
+
+<td>
+<a href="Toggle_Switch.xml" target="_blank">Download</a>
+</td>
+
+<td>
+<pre>
+{
+  "joins": [],
+  "interactions": [],
+  "components": [
+    {
+      "segments": [
+        {
+          "name": "LacI Inverter",
+          "sequence": [
+            {
+              "type": "promoter",
+              "name": "pLacI",
+              "id": "promoter-1",
+              "strand": "positive",
+              "start": 1,
+              "end": 55
+            },
+            {
+              "type": "res",
+              "name": "BBa_J61101 RBS",
+              "id": "res-2",
+              "strand": "positive",
+              "start": 56,
+              "end": 68
+            },
+            {
+              "type": "cds",
+              "name": "tetR",
+              "id": "cds-1",
+              "strand": "positive",
+              "start": 69,
+              "end": 729
+            },
+            {
+              "type": "res",
+              "name": "BBa_J61101 RBS",
+              "id": "res-1",
+              "strand": "positive",
+              "start": 730,
+              "end": 742
+            },
+            {
+              "type": "cds",
+              "name": "gfp",
+              "id": "cds-2",
+              "strand": "positive",
+              "start": 743,
+              "end": 1463
+            },
+            {
+              "type": "terminator",
+              "name": "ECK120033736",
+              "id": "terminator-1",
+              "strand": "positive",
+              "start": 1464,
+              "end": 1554
+            }
+          ]
+        },
+        {
+          "name": "LacI/TetR Toggle Swicth",
+          "sequence": [
+            {
+              "type": "user-defined",
+              "name": "TetR Inverter",
+              "id": "user-defined-2",
+              "strand": "positive",
+              "start": 1,
+              "end": 1285
+            },
+            {
+              "type": "user-defined",
+              "name": "LacI Inverter",
+              "id": "user-defined-1",
+              "strand": "positive",
+              "start": 1286,
+              "end": 2834
+            }
+          ]
+        },
+        {
+          "name": "TetR Inverter",
+          "sequence": [
+            {
+              "type": "promoter",
+              "name": "pTetR",
+              "id": "promoter-2",
+              "strand": "positive",
+              "start": 1,
+              "end": 55
+            },
+            {
+              "type": "res",
+              "name": "BBa_J61101 RBS",
+              "id": "res-3",
+              "strand": "positive",
+              "start": 56,
+              "end": 68
+            },
+            {
+              "type": "cds",
+              "name": "lacI",
+              "id": "cds-3",
+              "strand": "positive",
+              "start": 69,
+              "end": 1197
+            },
+            {
+              "type": "terminator",
+              "name": "ECK120029600",
+              "id": "terminator-2",
+              "strand": "positive",
+              "start": 1198,
+              "end": 1288
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "entities": []
+}
+</pre>
+</td>
+
+<td>
+<pre>
+p pLacI
+r BBa_J61101
+c tetR
+r BBa_J61101
+c gfp
+t ECK120033736
+p pTetR
+r BBa_J61101
+c lacI
+t ECK120029600
+# Arcs
+lacI rep pLacI
+tetR rep pTetR
+</pre>
+</td>
+
+</tr>
+
+
+</table>
+
+			
+			
+				
+		    </div>
+                </div>
+
+            </div>
+
+
+    </div>
+
+    <div id="footer">
+        <a target="_blank" href="http://ico2s.org"><img id="icos" src="img/icos.png" /></a>
+        <a target="_blank" href="http://ncl.ac.uk"><img id="ncl" src="img/newcastle-university.png" /></a>
+    </div>
+
+    <script src="js/jquery-2.1.3.js"></script>
+    <script src="js/pathseg.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ace/ace.js"></script>
+    <script src="js/splitter.js"></script>
+    <script src="bundle.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-62123884-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
+

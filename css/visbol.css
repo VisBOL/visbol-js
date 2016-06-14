@@ -1,0 +1,127 @@
+
+body {
+    background: url('../img/bg.png');
+}
+
+.page-header {
+    margin-top: 10px;
+}
+
+img#header-image {
+    width: 300px;
+}
+
+textarea.source-box {
+    font-family: monospace;
+    font-size: xx-small;
+    white-space: pre;
+    word-wrap: normal;
+}
+
+img#generate-your-design {
+    width: 180px;
+}
+
+img#will-update {
+    width: 220px;
+}
+
+
+#leftPane {
+	width: 500px;
+    padding: 20px;
+    overflow: none;
+}
+
+#rightPane {
+    padding: 20px;
+    overflow: auto;
+}
+
+html, body {
+    margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#split {
+	min-width: 500px;	/* Splitter can't be too thin ... */
+	min-height: 300px;	/* ... or too flat */
+	height: 100%;
+}
+
+.ui-state-default {
+    background-color: #eee;
+}
+
+.ui-state-hover {
+    background-color: #a3d39c;
+}
+
+.ui-state-highlight {
+    background-color: #00a651;
+}
+
+.ui-state-error {
+    background-color: #eaa;
+}
+
+.splitter-bar-vertical {
+	width: 6px;
+	background-position: center;
+}
+
+.splitter-bar.ui-state-highlight {
+	opacity: 0.7;
+}
+.splitter-iframe-hide {
+	visibility: hidden;
+}
+
+#svg {
+
+    padding-top: 20px;
+}
+
+#footer {
+
+    position: absolute;
+    border: 0;
+    bottom: 0;
+    right:0;
+    z-index: 200;
+    width: 500px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+img#icos {
+
+    height: 50px;
+    border: 0;
+    padding: 0;
+}
+
+img#ncl {
+
+    height: 50px;
+    border: 0;
+    padding: 0;
+}
+
+div#options select {
+
+    width: 160px;
+
+
+}
+
+.tooltip-inner {
+    white-space: pre;
+    max-width: none;
+}
+
+
+
+

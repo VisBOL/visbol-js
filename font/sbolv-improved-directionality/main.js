@@ -1,22 +1,13 @@
 
-define([
+module.exports = {
 
-    'sbolv',
-    './half-cds',
-    './marked-terminator'
-
-], function(sbolv, halfCDS, markedTerminator) {
-
-    var font = {};
-
-    Object.keys(sbolv).forEach(function(key) {
-        font[key] = sbolv[key];
-    });
-
-    font['cds'] = halfCDS;
-    font['terminator'] = markedTerminator;
-
-
-});
-
+    'cds': require('./cds'),
+    'promoter': require('../sbolv/promoter'),
+    'res': require('../sbolv/res'),
+    'restriction-site': require('../sbolv/restriction-site'),
+    'terminator': require('./terminator'),
+    'user-defined': require('../sbolv/user-defined'),
+    'origin-of-replication': require('./origin-of-replication'),
+    'origin-of-transfer': require('../sbolv/origin-of-transfer'),
+}
 
