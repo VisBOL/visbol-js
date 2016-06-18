@@ -22,19 +22,25 @@ var currentDisplayList = [];
 
 function refreshEditorSize(editor) {
 
-    /* http://stackoverflow.com/questions/11584061/automatically-adjust-height-to-contents-in-ace-cloud9-editor
-     */
-    editor.setOptions({
-        maxLines: Infinity
+    editor.editor.setOptions({
+        maxLines: 50
     });
 
+
 }
+
 
 function Editor(element, sourceFile, mode, parser, active) {
 
     var editorElement = element.children('.editor');
 
+    this.element = editorElement
     this.editor = ace.edit(editorElement[0]);
+
+
+
+
+
 
     this.editor.setTheme("ace/theme/solarized_light");
     this.editor.getSession().setMode(mode);
@@ -161,7 +167,7 @@ Editor.prototype = {
 
         if(active) {
 
-            refreshEditorSize(this.editor);
+            refreshEditorSize(this);
             this.updateDesign();
 
         }
@@ -18009,8 +18015,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../../../../../../../../../../../../../../../../../local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../../../../../../../../../../../../../../../local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":334}],124:[function(require,module,exports){
+}).call(this,{"isBuffer":require("/usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
+},{"/usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":334}],124:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
@@ -36004,7 +36010,8 @@ module.exports={
     "tarball": "http://registry.npmjs.org/elliptic/-/elliptic-3.1.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-3.1.0.tgz"
+  "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-3.1.0.tgz",
+  "readme": "ERROR: No README data found!"
 }
 
 },{}],202:[function(require,module,exports){
@@ -43046,8 +43053,8 @@ exports.isBuffer = isBuffer;
 function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
-}).call(this,{"isBuffer":require("../../../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../insert-module-globals/node_modules/is-buffer/index.js":334}],344:[function(require,module,exports){
+}).call(this,{"isBuffer":require("/usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
+},{"/usr/local/lib/node_modules/watchify/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":334}],344:[function(require,module,exports){
 (function (process){
 'use strict';
 module.exports = nextTick;

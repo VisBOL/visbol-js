@@ -21,19 +21,25 @@ var currentDisplayList = [];
 
 function refreshEditorSize(editor) {
 
-    /* http://stackoverflow.com/questions/11584061/automatically-adjust-height-to-contents-in-ace-cloud9-editor
-     */
-    editor.setOptions({
-        maxLines: Infinity
+    editor.editor.setOptions({
+        maxLines: 50
     });
 
+
 }
+
 
 function Editor(element, sourceFile, mode, parser, active) {
 
     var editorElement = element.children('.editor');
 
+    this.element = editorElement
     this.editor = ace.edit(editorElement[0]);
+
+
+
+
+
 
     this.editor.setTheme("ace/theme/solarized_light");
     this.editor.getSession().setMode(mode);
@@ -160,7 +166,7 @@ Editor.prototype = {
 
         if(active) {
 
-            refreshEditorSize(this.editor);
+            refreshEditorSize(this);
             this.updateDesign();
 
         }
