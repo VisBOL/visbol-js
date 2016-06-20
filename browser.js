@@ -316,7 +316,7 @@ var editors = [
 
 
         })
-    }),
+    }, true),
 
     new Editor($('#sourceGenbank'), 'sample.gbf', 'ace/mode/text', function(source, callback) {
 
@@ -331,7 +331,7 @@ var editors = [
 
         callback(displayList);
 
-    }, true)
+    })
 ];
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
