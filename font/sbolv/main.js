@@ -14,6 +14,7 @@ module.exports = {
     'helix': require('./helix'),
     'insulator': require('./insulator'),
     'stem-loop': require('./stem-loop'),
+    'poly-a': require('./poly-a'),
     'mature-transcript-region': require('./mature-transcript-region'),
     'scar': require('./scar')
 }

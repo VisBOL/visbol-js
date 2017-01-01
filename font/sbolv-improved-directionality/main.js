@@ -14,5 +14,6 @@ module.exports = {
     'stem-loop': require('../sbolv/stem-loop'),
     'mature-transcript-region': require('../sbolv/mature-transcript-region'),
     'scar': require('../sbolv/scar'),
+    'poly-a': require('../sbolv/poly-a'),
 }
 
