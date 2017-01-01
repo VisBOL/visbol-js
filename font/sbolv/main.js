@@ -6,6 +6,7 @@ module.exports = {
     'restriction-site': require('./restriction-site'),
     'terminator': require('./terminator'),
     'user-defined': require('./user-defined'),
+    'operator': require('./operator'),
     'origin-of-replication': require('./origin-of-replication'),
     'origin-of-transfer': require('./origin-of-transfer'),
     'tag': require('./tag'),

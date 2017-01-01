@@ -7,7 +7,8 @@ function renderGlyph(design, glyphObject, boxSize) {
     var glyph = design.surface.rect(boxSize.x, boxSize.y);
 
     glyph.attr('stroke', 'black');
-    glyph.attr('fill', glyphObject.color || '#cee');
+    glyph.attr('stroke-width', glyphObject.thickness || '3px');
+    glyph.attr('fill', 'none');
 
     if(glyphObject.uri)
         glyph.attr('data-uri', glyphObject.uri)
@@ -18,7 +19,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y / 2.0
+        backboneOffset: 5 * boxSize.y / 4
     };
 }
 
