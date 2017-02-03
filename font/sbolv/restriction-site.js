@@ -29,6 +29,9 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
+    if(glyphObject.uri)
+        glyph.attr('data-uri', glyphObject.uri)
+
     return {
         glyph: glyph,
         backboneOffset: boxSize.y * 0.5

@@ -35,6 +35,9 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke', 'black');
     glyph.attr('fill', glyphObject.color || '#779ecb');
 
+    if(glyphObject.uri)
+        glyph.attr('data-uri', glyphObject.uri)
+
     return {
         glyph: glyph,
         backboneOffset: boxSize.y / 2.0
