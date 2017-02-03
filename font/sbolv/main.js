@@ -9,5 +9,8 @@ module.exports = {
     'user-defined': require('./user-defined'),
     'origin-of-replication': require('./origin-of-replication'),
     'origin-of-transfer': require('./origin-of-transfer'),
+    'tag': require('./tag'),
+    'protein-domain': require('./protein-domain'),
+    'helix': require('./helix'),
 }
 

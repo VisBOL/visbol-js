@@ -22,8 +22,12 @@ function renderGlyph(design, glyphObject, boxSize) {
 
 module.exports = {
 
-    render: renderGlyph
+    render: renderGlyph,
 
+    insets: {
+        top: 0.5
+    }
+ 
 };
 
 
