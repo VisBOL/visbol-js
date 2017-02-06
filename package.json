@@ -4,7 +4,9 @@
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
-    "sboljs": "^1.7.8"
+    "sboljs": "^1.7.8",
+    "sbolmeta": "^0.1.10",
+    "urijs": "^1.16.1"
   },
   "devDependencies": {},
   "scripts": {

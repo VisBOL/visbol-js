@@ -11,6 +11,8 @@ var soToGlyphType = require('./lib/soToGlyphType')
 var pigeon = require('./lib/pigeon-parser')
 var genbank = require('./lib/genbank')
 
+var getDisplayList = require('./getDisplayList')
+
 
 var design = new Design({
     element: document.getElementById('design'),
@@ -213,32 +215,6 @@ var displayListEditor = new Editor($('#sourceSBDL'), 'sample.json', 'ace/mode/js
     }
 });
 
-function glyphTypeForComponentDefinition(componentDefinition) {
-
-    var soPrefixes = [
-        'http://purl.org/obo/owl/SO#',
-        'http://identifiers.org/so/'
-    ]
-
-    var terms = []
-
-    componentDefinition.roles.forEach(function(role) {
-
-        soPrefixes.forEach(function(prefix) {
-
-            if(('' + role).indexOf(prefix) === 0) {
-
-                terms.push(('' + role).slice(prefix.length).split('_').join(':'))
-
-            }
-
-        })
-
-    })
-
-    return soToGlyphType(terms[0]) || 'user-defined'
-}
-
 var editors = [
 
     displayListEditor,
@@ -261,49 +237,7 @@ var editors = [
 
             sbol.componentDefinitions.forEach(function(componentDefinition) {
 
-                var sortedSequenceAnnotations = componentDefinition.sequenceAnnotations.sort(function(a, b) {
-
-                    return start(a) - start(b)
-
-                    function start(sequenceAnnotation) {
-
-                        var ranges = sequenceAnnotation.ranges
-
-                        if(ranges.length === 0)
-                            return 0
-
-                        return Math.min.apply(null, ranges.map(function(range) {
-                            return range.start
-                        }))
-                    }
-                })
-
-                if(sortedSequenceAnnotations.length === 0)
-                    return
-
-                var segment = {
-                    id: componentDefinition.uri,
-                    name: componentDefinition.name,
-                    sequence: []
-                }
-
-                sortedSequenceAnnotations.forEach(function(sequenceAnnotation) {
-
-                    var component = sequenceAnnotation.component
-
-                    if(!component)
-                        return
-
-                    var definition = component.definition
-
-                    segment.sequence.push({
-                        type: glyphTypeForComponentDefinition(definition),
-                        name: definition.name
-                    })
-
-                })
-
-                component.segments.push(segment)
+                component.segments = component.segments.concat(getDisplayList(componentDefinition))
             })
 
             callback({
