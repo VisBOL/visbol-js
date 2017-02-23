@@ -1,6 +1,5 @@
 
 module.exports = {
-
     'cds': require('./cds'),
     'promoter': require('./promoter'),
     'res': require('./res'),
@@ -12,5 +11,6 @@ module.exports = {
     'tag': require('./tag'),
     'protein-domain': require('./protein-domain'),
     'helix': require('./helix'),
+    'insulator': require('./insulator'),
 }
 

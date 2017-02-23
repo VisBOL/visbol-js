@@ -118,6 +118,7 @@ function updateDesign(displayList) {
                         'res': 'Ribosome Entry Site',
                         'restriction-site': 'Restriction Site',
                         'terminator': 'Terminator',
+                        'insulator': 'Insulator',
                         'user-defined': 'User Defined'
                     })[glyph.type];
 
