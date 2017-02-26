@@ -1,5 +1,5 @@
 
-var soToGlyphType = require('./soToGlyphType')
+var soToGlyphType = require('./lib/soToGlyphType')
 
 var sbolmeta = require('sbolmeta')
 
@@ -91,6 +91,8 @@ function getDisplayListSegment(componentDefinition) {
 	}
     }
 
+    console.log(componentDefinition);
+
     return {
         name: displayName,
         sequence: sortedSequenceAnnotations(componentDefinition).map((sequenceAnnotation) => {
@@ -118,9 +120,7 @@ function getDisplayListSegment(componentDefinition) {
 		    if (component.definition.displayId) tooltip += 'Identifier: ' + component.definition.displayId + '\n'
 		    if (component.definition.name) tooltip += 'Name: ' + component.definition.name + '\n'
 		    if (component.definition.description) tooltip += 'Description: ' + component.definition.description + '\n'
-                } else {
-		    uri = component.definition.toString()
-		}
+                } 
 
             } else {
 		tooltip = 'Feature\n'
