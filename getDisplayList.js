@@ -103,11 +103,12 @@ function getDisplayListSegment(componentDefinition) {
             var uri = ''
 	    var tooltip = ''
 
-            if(sequenceAnnotation.component) {
+
+	  if(sequenceAnnotation.component && sequenceAnnotation.component.definition) {
 
                 var component = sequenceAnnotation.component
 		tooltip = 'Component\n'
-                if(component.definition && !(component.definition instanceof URI)) {
+                if(!(component.definition instanceof URI)) {
 
                     roles = roles.concat(component.definition.roles)
 
@@ -118,7 +119,9 @@ function getDisplayListSegment(componentDefinition) {
 		    if (component.definition.displayId) tooltip += 'Identifier: ' + component.definition.displayId + '\n'
 		    if (component.definition.name) tooltip += 'Name: ' + component.definition.name + '\n'
 		    if (component.definition.description) tooltip += 'Description: ' + component.definition.description + '\n'
-                } 
+                } else {
+			uri = component.definition.toString();
+		}
 
             } else {
 		tooltip = 'Feature\n'
