@@ -91,8 +91,6 @@ function getDisplayListSegment(componentDefinition) {
 	}
     }
 
-    console.log(componentDefinition);
-
     return {
         name: displayName,
         sequence: sortedSequenceAnnotations(componentDefinition).map((sequenceAnnotation) => {
