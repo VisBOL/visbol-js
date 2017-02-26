@@ -12,6 +12,7 @@ module.exports = {
     'protein-domain': require('./protein-domain'),
     'helix': require('./helix'),
     'insulator': require('./insulator'),
-    'stem-loop': require('./stem-loop')
+    'stem-loop': require('./stem-loop'),
+    'mature-transcript-region': require('./mature-transcript-region')
 }
 

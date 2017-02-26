@@ -11,5 +11,6 @@ module.exports = {
     'origin-of-transfer': require('../sbolv/origin-of-transfer'),
     'insulator': require('../sbolv/insulator'),
     'stem-loop': require('../sbolv/stem-loop'),
+    'mature-transcript-region': require('../sbolv/mature-transcript-region'),
 }
 

@@ -115,6 +115,7 @@ function updateDesign(displayList) {
                         'terminator': 'Terminator',
                         'insulator': 'Insulator',
 			'stem-loop': 'Stem Loop',
+			'mature-transcript-region': 'Mature Transcript Region',
                         'user-defined': 'User Defined'
                     })[glyph.type];
 
