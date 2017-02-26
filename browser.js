@@ -38,11 +38,6 @@ function Editor(element, sourceFile, mode, parser, active) {
     this.element = editorElement
     this.editor = ace.edit(editorElement[0]);
 
-
-
-
-
-
     this.editor.setTheme("ace/theme/solarized_light");
     this.editor.getSession().setMode(mode);
     this.editor.$blockScrolling = Infinity;
@@ -119,6 +114,7 @@ function updateDesign(displayList) {
                         'restriction-site': 'Restriction Site',
                         'terminator': 'Terminator',
                         'insulator': 'Insulator',
+			'stem-loop': 'Stem Loop',
                         'user-defined': 'User Defined'
                     })[glyph.type];
 
