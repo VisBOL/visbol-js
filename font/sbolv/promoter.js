@@ -32,17 +32,25 @@ function renderGlyph(design, glyphObject, boxSize) {
     ].join('');
 
     var glyph = design.surface.path(path);
+    var group = design.surface.group()
 
     glyph.attr('stroke', glyphObject.color || '#03c03c');
     glyph.attr('stroke-width', glyphObject.thickness || '5px');
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
+    group.add(glyph);
+
+    boundingBox = design.surface.rect(boxSize.x, boxSize.y);
+    boundingBox.attr('fill-opacity', 0);
+
     if(glyphObject.uri)
-        glyph.attr('data-uri', glyphObject.uri)
+        boundingBox.attr('data-uri', glyphObject.uri);
+
+    group.add(boundingBox);
 
     return {
-        glyph: glyph,
+        glyph: group,
         backboneOffset: boxSize.y
     };
 }
