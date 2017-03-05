@@ -2,47 +2,111 @@
 var Vec2 = require('../../lib/geom/vec2')
 var Rect = require('../../lib/geom/rect')
 
-function createGeometry(boxSize) {
+function renderGlyph(design, glyphObject, boxSize) {
 
+
+    var paths = createPaths(design, glyphObject, boxSize)
+
+    var group = design.surface.group();
+
+    paths.forEach((path) => group.add(path))
+
+    if(glyphObject.uri)
+        group.attr('data-uri', glyphObject.uri);
 
     return {
-	topLeft: Vec2(0, boxSize.y * 0.75),
-	topRight: Vec2(boxSize.x * 0.625, boxSize.y * 0.75),
-	loopApex: Vec2(boxSize.x * 0.8125, 0),
-	bottomRight: Vec2(boxSize.x, boxSize.y),
-	bottomLeft: Vec2(0, boxSize.y),
+        glyph: group,
+        backboneOffset: boxSize.y
     };
 }
 
-function renderGlyph(design, glyphObject, boxSize) {
+function createPaths(design, glyphObject, reqSize) {
 
-    var geom = createGeometry(boxSize);
+    const origSizeX = 1000;
+    const origSizeY = 400;
 
-    var path = [
+    const loopCoords = [
+        { x1: 100, y1: 150, x2: 150, y2: -50, x3: 200,  y3: 150 },
+        { x1: 300, y1: 150, x2: 350, y2: -50, x3: 400,  y3: 150 },
+        { x1: 500, y1: 150, x2: 550, y2: -50, x3: 600,  y3: 150 },
+        { x1: 700, y1: 150, x2: 750, y2: -50, x3: 800,  y3: 150 },
+        { x1: 900, y1: 150, x2: 950, y2: -50, x3: 1000, y3: 150 },
 
-	'M' + Vec2.toPathString(geom.topLeft),
-	'L' + Vec2.toPathString(geom.topRight),
-	'C' + Vec2.toPathString(geom.topRight) + ' '
-	    + Vec2.toPathString(geom.loopApex) + ' '
-	    + Vec2.toPathString(geom.bottomRight),
-	'L' + Vec2.toPathString(geom.bottomLeft),
-	
-        'Z'
+        { x1: 100, y1: 250, x2: 150, y2: 450, x3: 200,  y3: 250 },
+        { x1: 300, y1: 250, x2: 350, y2: 450, x3: 400,  y3: 250 },
+        { x1: 500, y1: 250, x2: 550, y2: 450, x3: 600,  y3: 250 },
+        { x1: 700, y1: 250, x2: 750, y2: 450, x3: 800,  y3: 250 },
+        { x1: 900, y1: 250, x2: 950, y2: 450, x3: 1000, y3: 250 },
+    ]
 
-    ].join('');
+    const lineCoords = [
+        { x1: 0,    y1: 150, x2: 100,  y2: 150 },
+        { x1: 200,  y1: 150, x2: 300,  y2: 150 },
+        { x1: 400,  y1: 150, x2: 500,  y2: 150 },
+        { x1: 600,  y1: 150, x2: 700,  y2: 150 },
+        { x1: 800,  y1: 150, x2: 900,  y2: 150 },
 
-    var glyph = design.surface.path(path);
+        { x1: 0,    y1: 250, x2: 100,  y2: 250 },
+        { x1: 200,  y1: 250, x2: 300,  y2: 250 },
+        { x1: 400,  y1: 250, x2: 500,  y2: 250 },
+        { x1: 600,  y1: 250, x2: 700,  y2: 250 },
+        { x1: 800,  y1: 250, x2: 900,  y2: 250 },
 
-    glyph.attr('stroke', 'black');
-    glyph.attr('fill', '#ffc39b');
+        { x1: 1000, y1: 150, x2: 1000, y2: 250 }
+    ]
 
-    if(glyphObject.uri)
-        glyph.attr('data-uri', glyphObject.uri)
+    const lines = lineCoords.map((lineCoord) => {
 
-    return {
-        glyph: glyph,
-        backboneOffset: boxSize.y 
-    };
+        const line = design.surface.line()
+
+        line.attr('x1', sizeX(lineCoord.x1))
+        line.attr('y1', sizeY(lineCoord.y1))
+        line.attr('x2', sizeX(lineCoord.x2))
+        line.attr('y2', sizeY(lineCoord.y2))
+        line.attr('stroke-width', '1')
+
+        return line
+
+    })
+
+    const loops = loopCoords.map((loopCoord) => {
+        
+        var loopPath = [
+            'M', sizeX(loopCoord.x1), ' ', sizeY(loopCoord.y1),
+            'C', sizeX(loopCoord.x1), ' ', sizeY(loopCoord.y1), ' ', 
+                 sizeX(loopCoord.x2), ' ', sizeY(loopCoord.y2), ' ',
+                 sizeX(loopCoord.x3), ' ', sizeY(loopCoord.y3),
+        ].join('');
+
+        console.log(loopPath)
+
+        var loop = design.surface.path(loopPath)
+
+        loop.attr('stroke-width', '1')
+        loop.attr('fill', 'none')
+
+        return loop;
+    })
+
+    return lines.concat(loops);
+
+    function sizeX(n) {
+
+        return ((n / origSizeX) * reqSize.x) + ''
+
+    }
+
+    function sizeY(n) {
+
+        return reqSize.y * 0.5 + ((n / origSizeY) * reqSize.y) + ''
+
+    }
+
+    function sizeY_rel(n) {
+
+        return ((n / origSizeY) * reqSize.y) + ''
+
+    }
 }
 
 module.exports = {
