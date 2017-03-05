@@ -78,8 +78,6 @@ function createPaths(design, glyphObject, reqSize) {
                  sizeX(loopCoord.x3), ' ', sizeY(loopCoord.y3),
         ].join('');
 
-        console.log(loopPath)
-
         var loop = design.surface.path(loopPath)
 
         loop.attr('stroke-width', '1')
