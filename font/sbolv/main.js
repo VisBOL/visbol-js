@@ -13,6 +13,7 @@ module.exports = {
     'helix': require('./helix'),
     'insulator': require('./insulator'),
     'stem-loop': require('./stem-loop'),
-    'mature-transcript-region': require('./mature-transcript-region')
+    'mature-transcript-region': require('./mature-transcript-region'),
+    'scar': require('./scar')
 }
 
