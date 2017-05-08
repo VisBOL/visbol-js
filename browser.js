@@ -11,7 +11,7 @@ var soToGlyphType = require('./lib/soToGlyphType')
 var pigeon = require('./lib/pigeon-parser')
 var genbank = require('./lib/genbank')
 
-var getDisplayList = require('./getDisplayList')
+var getDisplayList = require('./lib/getDisplayList')
 
 
 var design = new Design({
