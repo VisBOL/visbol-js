@@ -22,17 +22,12 @@ var design = new Design({
 var currentDisplayList = [];
 
 function refreshEditorSize(editor) {
-
     editor.editor.setOptions({
         maxLines: 50
     });
-
-
 }
 
-
 function Editor(element, sourceFile, mode, parser, active) {
-
     var editorElement = element.children('.editor');
 
     this.element = editorElement
@@ -65,7 +60,6 @@ function Editor(element, sourceFile, mode, parser, active) {
 function updateDesign(displayList) {
 
     if(displayList instanceof Error) {
-
         $('#designLoading,#design').hide();
         $('#designError').text(displayList.toString()).show();
 
@@ -80,7 +74,6 @@ function updateDesign(displayList) {
     $('#scale').prop('disabled', $('#proportional').is(':disabled'));
 
     if(!displayListEditor.active) {
-
         displayListEditor.setValue(JSON.stringify(displayList, null, 2));
     }
 
@@ -97,6 +90,7 @@ function updateDesign(displayList) {
 
     design.displayList.components.forEach(function(component) {
 
+        console.log(component)
         component.segments.forEach(function(segment) {
 
             segment.sequence.forEach(function(glyph) {
@@ -139,28 +133,21 @@ function updateDesign(displayList) {
 
     });
 
-    /*try {
-
+    try {
         design.setDisplayList(displayList);
-
     } catch(e) {
-
         design.setDisplayList([]);
 
         $('#designLoading,#design').hide();
         $('#designError').text(e.toString()).show();
-
-    }*/
+    }
 }
 
 $('#font,#proportional,#scale').change(function() {
-
     updateDesign(currentDisplayList);
-
 });
 
 Editor.prototype = {
-
     setActive: function(active) {
 
         this.active = active;
@@ -174,19 +161,14 @@ Editor.prototype = {
     },
 
     setValue: function(value) {
-
         this.editor.setValue(value, -1);
-        
     },
 
     getValue: function() {
-
         return this.editor.getValue();
-        
     },
 
     updateDesign: function() {
-
         if(this.active)
             this.parser.call(this, this.getValue(), updateDesign);
     }
@@ -235,12 +217,10 @@ var editors = [
             }
 
             sbol.componentDefinitions.forEach(function(componentDefinition) {
-
                 component.segments = component.segments.concat(getDisplayList(componentDefinition))
             })
 
             callback({
-
                 version: 1,
                 components: [
                     component
