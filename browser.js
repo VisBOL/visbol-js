@@ -88,6 +88,8 @@ function updateDesign(displayList) {
     design.setScale($('#scale').val() / 100.0);
     design.setDisplayList(displayList);
 
+    console.log(design)
+
     design.displayList.components.forEach(function(component) {
 
         console.log(component)
@@ -132,15 +134,6 @@ function updateDesign(displayList) {
 
 
     });
-
-    try {
-        design.setDisplayList(displayList);
-    } catch(e) {
-        design.setDisplayList([]);
-
-        $('#designLoading,#design').hide();
-        $('#designError').text(e.toString()).show();
-    }
 }
 
 $('#font,#proportional,#scale').change(function() {
@@ -217,7 +210,8 @@ var editors = [
             }
 
             sbol.componentDefinitions.forEach(function(componentDefinition) {
-                component.segments = component.segments.concat(getDisplayList(componentDefinition))
+                console.log(getDisplayList(componentDefinition))
+                component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
 
             callback({
