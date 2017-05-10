@@ -4,7 +4,7 @@ var Rect = require('../../lib/geom/rect')
 
 function renderGlyph(design, glyphObject, boxSize) {
 
-    var glyph = design.surface.rect(boxSize.x, boxSize.y);
+    var glyph = design.surface.rect(boxSize.y, boxSize.y);
 
     glyph.attr('stroke', 'black');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
@@ -19,7 +19,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: 5 * boxSize.y / 4
+        backboneOffset: boxSize.y
     };
 }
 

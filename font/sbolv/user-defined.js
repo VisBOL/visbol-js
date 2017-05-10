@@ -18,7 +18,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y / 2.0
+        backboneOffset: boxSize.y
     };
 }
 
