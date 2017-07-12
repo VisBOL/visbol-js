@@ -1,8 +1,0 @@
-p [I1] 8
-p p 8
-r r 4
-c cds 6
-t t
-p p2 8
-# Arcs
-cds rep p2
