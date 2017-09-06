@@ -88,8 +88,6 @@ function updateDesign(displayList) {
     design.setScale($('#scale').val() / 100.0);
     design.setDisplayList(displayList);
 
-    console.log(design)
-
     design.displayList.components.forEach(function(component) {
 
         console.log(component)
@@ -168,7 +166,7 @@ Editor.prototype = {
 };
 
 var displayListEditor = new Editor($('#sourceSBDL'), 'sample.json', 'ace/mode/json', function(source, callback) {
-              
+
     console.log('parsing display list length ' + source.length)
 
     try {
@@ -194,7 +192,7 @@ var editors = [
     displayListEditor,
 
     new Editor($('#sourceSBOL'), 'sbol2.xml', 'ace/mode/xml', function(source, callback) {
-              
+
         $('#design').hide();
         $('#designLoading').show();
 
@@ -233,7 +231,7 @@ var editors = [
     }),
 
     new Editor($('#sourcePigeon'), 'sample.pigeon', 'ace/mode/text', function(source, callback) {
-              
+
         var displayList = pigeon.parsePigeon(source);
 
         callback(displayList);
@@ -248,7 +246,7 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
     var editor = $(tab).data('visbol-editor');
 
     editors.forEach(function(ed) {
-        
+
         ed.setActive(ed === editor);
 
     });
