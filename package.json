@@ -6,6 +6,7 @@
   "dependencies": {
     "sboljs": "^1.7.8",
     "sbolmeta": "^0.1.10",
+    "sha1": "^1.1.1",
     "urijs": "^1.16.1"
   },
   "devDependencies": {},
