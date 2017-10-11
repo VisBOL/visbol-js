@@ -16,6 +16,7 @@ module.exports = {
     'stem-loop': require('./stem-loop'),
     'poly-a': require('./poly-a'),
     'mature-transcript-region': require('./mature-transcript-region'),
-    'scar': require('./scar')
+    'scar': require('./scar'),
+    'aptamer': require('./aptamer')
 }
 
