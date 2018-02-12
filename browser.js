@@ -100,6 +100,7 @@ function updateDesign(displayList) {
                     var $node = $(glyph.svg.node);
 
                     var title = ({
+						'aptamer': 'Aptamer',
                         'cds': 'Coding Site',
                         'origin-of-replication': 'Origin of Replication',
                         'origin-of-transfer': 'Origin of Transfer',
