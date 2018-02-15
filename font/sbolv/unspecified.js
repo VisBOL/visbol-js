@@ -20,6 +20,16 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var group = design.surface.group();
 
+	var fillPoints = [
+		geom.top.x + ',' + geom.top.y,
+		geom.left.x + ',' + geom.left.y,
+		geom.bottom.x + ',' + geom.bottom.y,
+		geom.right.x + ',' + geom.right.y
+	].join(' ');
+	var fill = design.surface.polygon(fillPoints);
+	fill.attr('fill', glyphObject.color || '#ffff00');
+	group.add(fill);
+
     var path = [
         'M' + Vec2.toPathString(geom.top),  
         'L' + Vec2.toPathString(geom.left),
@@ -28,7 +38,7 @@ function renderGlyph(design, glyphObject, boxSize) {
         'Z'
     ].join("")
 
-    let question = design.surface.text('?').move(boxSize.x / 2, 0);
+    let question = design.surface.text('?').move(boxSize.x / 2, geom.bottom.y / 6);
     
     question.attr('text-anchor', 'middle');
 
