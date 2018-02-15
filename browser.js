@@ -101,6 +101,7 @@ function updateDesign(displayList) {
 
                     var title = ({
 						'aptamer': 'Aptamer',
+						'assembly-scar': 'Assembly Scar',
                         'cds': 'Coding Site',
                         'origin-of-replication': 'Origin of Replication',
                         'origin-of-transfer': 'Origin of Transfer',

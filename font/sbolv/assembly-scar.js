@@ -34,6 +34,10 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke-linecap', 'round');
     glyph.attr('fill', 'none');
 
+	var hideDNA = design.surface.rect(boxSize.x, boxSize.y);
+	hideDNA.attr('fill', '#ffffff');
+	group.add(hideDNA);
+
     group.add(glyph);
 
     boundingBox = design.surface.rect(boxSize.x, boxSize.y);
