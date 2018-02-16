@@ -101,6 +101,8 @@ function updateDesign(displayList) {
 
                     var title = ({
 						'aptamer': 'Aptamer',
+						'assembly-scar': 'Assembly Scar',
+						'blunt-restriction-site': 'Blunt Restriction Site',
                         'cds': 'Coding Site',
                         'origin-of-replication': 'Origin of Replication',
                         'origin-of-transfer': 'Origin of Transfer',

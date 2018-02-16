@@ -13,7 +13,7 @@ module.exports = {
     'insulator': require('../sbolv/insulator'),
     'stem-loop': require('../sbolv/stem-loop'),
     'mature-transcript-region': require('../sbolv/mature-transcript-region'),
-    'scar': require('../sbolv/scar'),
+    'scar': require('../sbolv/assembly-scar'),
     'poly-a': require('../sbolv/poly-a'),
 }
 
