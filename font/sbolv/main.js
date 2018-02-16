@@ -17,7 +17,8 @@ module.exports = {
     'poly-a': require('./poly-a'),
     'mature-transcript-region': require('./mature-transcript-region'),
     'scar': require('./scar'),
+    'unspecified': require('./unspecified'),
     'aptamer': require('./aptamer'),
-    'recombination-site': require('./recombination-site')
+    'recombination-site': require('./recombination-site'),
 }
 
