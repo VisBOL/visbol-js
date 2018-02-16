@@ -12,6 +12,7 @@ module.exports = {
     'origin-of-transfer': require('./origin-of-transfer'),
 	'poly-a': require('./poly-a'),
 	'promoter': require('./promoter'),
+	'protease-site': require('./protease-site'),
 	'protein-domain': require('./protein-domain'),
 	'recombination-site': require('./recombination-site'),
     'res': require('./res'),

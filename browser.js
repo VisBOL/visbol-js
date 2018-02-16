@@ -107,6 +107,7 @@ function updateDesign(displayList) {
                         'origin-of-replication': 'Origin of Replication',
                         'origin-of-transfer': 'Origin of Transfer',
                         'promoter': 'Promoter',
+						'protease-site': 'Protease Site',
                         'res': 'Ribosome Entry Site',
                         'restriction-site': 'Restriction Site',
                         'terminator': 'Terminator',
