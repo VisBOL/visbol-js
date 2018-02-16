@@ -19,6 +19,7 @@ module.exports = {
 	'stem-loop': require('./stem-loop'),
 	'tag': require('./tag'),
     'terminator': require('./terminator'),
-    'user-defined': require('./user-defined')
+    'user-defined': require('./user-defined'),
+    'unspecified': require('./unspecified')
 }
 

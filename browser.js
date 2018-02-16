@@ -114,6 +114,7 @@ function updateDesign(displayList) {
                         'stem-loop': 'Stem Loop',
                         'mature-transcript-region': 'Mature Transcript Region',
                         'scar': 'Scar',
+						'unspecified': 'Unspecifed',
                         'user-defined': 'User Defined'
                     })[glyph.type];
 
