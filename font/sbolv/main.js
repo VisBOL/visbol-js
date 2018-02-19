@@ -17,6 +17,7 @@ module.exports = {
 	'recombination-site': require('./recombination-site'),
     'res': require('./res'),
     'restriction-site': require('./restriction-site'),
+	'ribonuclease-site': require('./ribonuclease-site'),
 	'stem-loop': require('./stem-loop'),
 	'tag': require('./tag'),
     'terminator': require('./terminator'),

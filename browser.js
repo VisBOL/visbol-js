@@ -110,6 +110,7 @@ function updateDesign(displayList) {
 						'protease-site': 'Protease Site',
                         'res': 'Ribosome Entry Site',
                         'restriction-site': 'Restriction Site',
+						'ribonuclease-site': 'Ribonuclease Site',
                         'terminator': 'Terminator',
                         'insulator': 'Insulator',
                         'stem-loop': 'Stem Loop',
