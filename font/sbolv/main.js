@@ -2,6 +2,9 @@
 module.exports = {
 	'aptamer': require('./aptamer'),
 	'assembly-scar': require('./assembly-scar'),
+	'biopolymer-junction': require('./biopolymer-junction'),
+	'biopolymer-base': require('./biopolymer-base'),
+	'biopolymer-amino-acid': require('./biopolymer-amino-acid'),
 	'blunt-restriction-site': require('./blunt-restriction-site'),
 	'cds': require('./cds'),
 	'helix': require('./helix'),

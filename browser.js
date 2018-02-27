@@ -102,6 +102,9 @@ function updateDesign(displayList) {
                     var title = ({
 						'aptamer': 'Aptamer',
 						'assembly-scar': 'Assembly Scar',
+						'biopolymer-junction': 'Biopolymer Junction',
+						'biopolymer-base': 'Biopolymer Base',
+						'biopolymer-amino-acid': 'Biopolymer Amino Acid',
 						'blunt-restriction-site': 'Blunt Restriction Site',
                         'cds': 'Coding Site',
                         'origin-of-replication': 'Origin of Replication',
