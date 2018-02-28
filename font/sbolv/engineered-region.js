@@ -7,7 +7,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     var glyph = design.surface.rect(boxSize.x, boxSize.y);
 
     glyph.attr('stroke', 'black');
-    glyph.attr('fill', glyphObject.color || '#eee');
+    glyph.attr('fill', glyphObject.color || '#cee');
 
     if(glyphObject.uri)
         glyph.attr('data-uri', glyphObject.uri)
