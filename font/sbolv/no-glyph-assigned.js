@@ -5,14 +5,15 @@ function createGeometry(boxSize) {
 	var width = boxSize.x / 2.0;
 	var height = boxSize.y;
 	var indentScale = 0.25;
+	var aboveLineScale = 0.8;
     return {
-		leftBottomStart: Vec2(width * indentScale, height),
-		leftBottom: Vec2(0.0, height),
+		leftBottomStart: Vec2(width * indentScale, height * aboveLineScale),
+		leftBottom: Vec2(0.0, height * aboveLineScale),
 		leftTop: Vec2(0.0, 0.0),
 		leftTopEnd: Vec2(width * indentScale, 0.0),
 
-		rightBottomStart: Vec2(width - (width * indentScale), height),
-		rightBottom: Vec2(width, height),
+		rightBottomStart: Vec2(width - (width * indentScale), height * aboveLineScale),
+		rightBottom: Vec2(width, height * aboveLineScale),
 		rightTop: Vec2(width, 0.0),
 		rightTopEnd: Vec2(width - (width * indentScale), 0.0),
     };
