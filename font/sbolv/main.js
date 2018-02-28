@@ -7,6 +7,7 @@ module.exports = {
 	'biopolymer-amino-acid': require('./biopolymer-amino-acid'),
 	'blunt-restriction-site': require('./blunt-restriction-site'),
 	'cds': require('./cds'),
+	'engineered-region': require('./engineered-region'),
 	'helix': require('./helix'),
 	'insulator': require('./insulator'),
 	'mature-transcript-region': require('./mature-transcript-region'),
