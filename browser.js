@@ -107,6 +107,9 @@ function updateDesign(displayList) {
 						'biopolymer-amino-acid': 'Biopolymer Amino Acid',
 						'blunt-restriction-site': 'Blunt Restriction Site',
                         'cds': 'Coding Site',
+						'engineered-region': 'Engineered Region',
+						'insulator': 'Insulator',
+						'mature-transcript-region': 'Mature Transcript Region',
                         'origin-of-replication': 'Origin of Replication',
                         'origin-of-transfer': 'Origin of Transfer',
                         'promoter': 'Promoter',
@@ -116,11 +119,9 @@ function updateDesign(displayList) {
                         'restriction-site': 'Restriction Site',
 						'ribonuclease-site': 'Ribonuclease Site',
 						'rna-stability': 'RNA Stability Element',
-                        'terminator': 'Terminator',
-                        'insulator': 'Insulator',
                         'stem-loop': 'Stem Loop',
-                        'mature-transcript-region': 'Mature Transcript Region',
                         'scar': 'Scar',
+						'terminator': 'Terminator',
 						'unspecified': 'Unspecifed',
                         'user-defined': 'User Defined'
                     })[glyph.type];
