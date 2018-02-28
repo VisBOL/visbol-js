@@ -123,7 +123,7 @@ function updateDesign(displayList) {
                         'scar': 'Scar',
 						'terminator': 'Terminator',
 						'unspecified': 'Unspecifed',
-                        'user-defined': 'User Defined'
+                        'no-glyph-assigned': 'No Glyph Assigned'
                     })[glyph.type];
 
                     if(glyph.start !== glyph.end) {
