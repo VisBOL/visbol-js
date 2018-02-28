@@ -70,7 +70,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 	var polygon = design.surface.path(polygonPath)
 	polygon.attr('fill', glyphObject.color || '#f00');
 	polygon.attr('stroke', '#000');
-	polygon.attr('stroke-width', glyphObject.thickness || '4px');
+	polygon.attr('stroke-width', glyphObject.thickness || '3px');
 
 	var group = design.surface.group();
 	group.add(glyph);
