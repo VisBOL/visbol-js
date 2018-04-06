@@ -9,4 +9,17 @@ There are four steps for adding normal dna glyphs
 4) Add file to font/sbolv with renderGlyph implemented
 
 ### How to Test
-Use `browserify -o visbol-js/bundle.js visbol-js/browser.js` to create bundle.js. Then copy bundle.js to the visbol-site directory and open the site in a browser.
+Global install of browserify     
+`$ npm install -g browserify`     
+
+Install dependencies     
+`$ npm install`     
+
+Create bundle.js     
+`$ browserify -o bundle.js browser.js`    
+
+Make sure you have [visbol-site](https://github.com/VisBOL/visbol-site) cloned, then copy bundle.js to the the visbol-site     directory and open up index.html in a browser    
+
+### Useful links     
+[SBOL Test Suite](https://github.com/synbiodex/sboltestsuite)      
+[SBOL Glyphs](http://sbolstandard.org/visual/glyphs/)    
