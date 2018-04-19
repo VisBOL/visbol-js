@@ -5,10 +5,9 @@ var Rect = require('../../lib/geom/rect')
 function createGeometry(boxSize) {
 
     return {
-        topLeft: Vec2(0.0, 0.0),
-        bottomLeft: Vec2(0.0, boxSize.y),
-        bottomRight: Vec2(boxSize.x, boxSize.y),
-        topRight: Vec2(boxSize.x, 0.0)
+        bottomLeft: Vec2(0.0, boxSize.y * 0.75),
+        bottomRight: Vec2(boxSize.x, boxSize.y * 0.75),
+        top: Vec2(boxSize.x * 0.6, boxSize.y * 0.4)
     };
 }
 
@@ -18,10 +17,9 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var path = [
 
-        'M' + Vec2.toPathString(geom.topLeft),
-        'L' + Vec2.toPathString(geom.bottomLeft),
+        'M' + Vec2.toPathString(geom.bottomLeft),
         'L' + Vec2.toPathString(geom.bottomRight),
-        'L' + Vec2.toPathString(geom.topRight)
+        'L' + Vec2.toPathString(geom.top)
 
     ].join('');
 
@@ -34,9 +32,6 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
-    var hideDNA = design.surface.rect(boxSize.x, boxSize.y);
-    hideDNA.attr('fill', '#ffffff');
-    group.add(hideDNA);
     group.add(glyph);
 
     boundingBox = design.surface.rect(boxSize.x, boxSize.y);
@@ -49,7 +44,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y * 0.5
+        backboneOffset: boxSize.y
     };
 }
 

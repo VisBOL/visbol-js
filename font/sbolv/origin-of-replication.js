@@ -11,12 +11,13 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var geom = createGeometry(boxSize);
 
-    var glyph = design.surface.ellipse(
-        boxSize.x, boxSize.y);
+    var glyph = design.surface.circle(
+        boxSize.x, boxSize.x);
 
 
     glyph.attr('stroke', 'black');
     glyph.attr('fill', glyphObject.color || '#cee');
+    glyph.attr('stroke-width', glyphObject.thickness || '5px');
 
     if(glyphObject.uri)
         glyph.attr('data-uri', glyphObject.uri)
@@ -32,5 +33,6 @@ module.exports = {
     render: renderGlyph
 
 };
+
 
 
