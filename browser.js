@@ -129,6 +129,7 @@ function updateDesign(displayList) {
                                                  'scar': 'Scar',
 						'terminator': 'Terminator',
 						'unspecified': 'Unspecifed',
+                                                'non-coding-rna-gene': 'Non Coding RNA Gene',
                                                 'no-glyph-assigned': 'No Glyph Assigned'
                     })[glyph.type];
 

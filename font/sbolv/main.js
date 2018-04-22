@@ -2,6 +2,7 @@
 module.exports = {
 	'aptamer': require('./aptamer'),
 	'assembly-scar': require('./assembly-scar'),
+        'non-coding-rna-gene': require('./non-coding-rna-gene'),
         'signature': require('./signature'),
         'sticky-restriction-site-5': require('./sticky-restriction-site-5'),
         'primer-binding-site': require('./primer-binding-site'),
