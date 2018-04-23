@@ -5,22 +5,9 @@ function createGeometry(boxSize) {
 
 	var sizeScale = 0.4;
 	var offsetX = (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale);
-
-	var leftScale = 0.3;
-	var rightScale = 1.0 - leftScale;
-	var waveScale = .875;
-	var stemBottom = boxSize.y * 1.5;
-	var stemTop = boxSize.y * 0.4;
-	var stemStep = (stemBottom - stemTop) / 6;
     return {
-		stemTop: Vec2(boxSize.x / 2.0, stemTop),
-		stemControl: Vec2((boxSize.x / 2.0) * waveScale, stemTop + (stemStep / 2.0)),
-		stemFirst: Vec2(boxSize.x / 2.0, stemTop + (stemStep * 1)),
-		stemSecond: Vec2(boxSize.x  / 2.0, stemTop + (stemStep * 2)),
-		stemThird: Vec2(boxSize.x / 2.0, stemTop + (stemStep * 3)),
-		stemFourth: Vec2(boxSize.x / 2.0, stemTop + (stemStep * 4)),
-		stemFifth: Vec2(boxSize.x / 2.0, stemTop + (stemStep * 5)),
-		stemBottom: Vec2(boxSize.x / 2.0, stemBottom),
+        stemBottom: Vec2(boxSize.x / 2.0, boxSize.y * 1.5),
+        stemTop: Vec2(boxSize.x / 2.0, boxSize.y * 0.5),
 		circleSizeX: boxSize.x * sizeScale,
 		circleSizeY: boxSize.y * sizeScale,
 		circleOffsetX: (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale),
@@ -34,13 +21,12 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var path = [
 
-		'M' + Vec2.toPathString(geom.stemTop),
-		'Q' + Vec2.toPathString(geom.stemControl) + ' ' + Vec2.toPathString(geom.stemFirst),
-		'T' + Vec2.toPathString(geom.stemSecond),
-		'T' + Vec2.toPathString(geom.stemThird),
-		'T' + Vec2.toPathString(geom.stemFourth),
-		'T' + Vec2.toPathString(geom.stemFifth),
-		'T' + Vec2.toPathString(geom.stemBottom),
+        'M' + Vec2.toPathString(geom.stemBottom),
+        'L' + Vec2.toPathString(geom.stemTop),
+        // 'M' + Vec2.toPathString(geom.topLeft),
+        // 'L' + Vec2.toPathString(geom.bottomRight),
+		// 'M' + Vec2.toPathString(geom.topRight),
+        // 'L' + Vec2.toPathString(geom.bottomLeft),
 
     ].join('');
 
