@@ -118,6 +118,7 @@ function updateDesign(displayList) {
                                                 'origin-of-replication': 'Origin of Replication',
                                                 'origin-of-transfer': 'Origin of Transfer',
                                                 'operator': 'Operator',
+                                                'poly-a': 'PolyA',
                                                 'promoter': 'Promoter',
 						'protease-site': 'Protease Site',
 						'protein-stability': 'Protein Stability Element',
