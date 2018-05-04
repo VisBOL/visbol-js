@@ -6,10 +6,10 @@ function createGeometry(boxSize) {
     var indentScale = 0.02 * boxSize.x;
 	 
     return {
-		leftTop: Vec2(0.0 + indentScale, 0.0),
+		leftTop: Vec2(0.0 + indentScale, boxSize.y * 0.1),
 		leftMiddle: Vec2(0.0 + indentScale, boxSize.y * 0.5),
 		rightMiddle: Vec2(boxSize.x - indentScale, boxSize.y * 0.5),
-                rightBottom: Vec2(boxSize.x - indentScale, boxSize.y),
+                rightBottom: Vec2(boxSize.x - indentScale, boxSize.y * 0.9),
    };
 }
 
