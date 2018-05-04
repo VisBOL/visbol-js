@@ -4,11 +4,11 @@ var Rect = require('../../lib/geom/rect')
 
 function createGeometry(boxSize) {
 
-    var rightIndent = Vec2(boxSize.x * 0.5, boxSize.y * 0.3)
+    var rightIndent = Vec2(boxSize.x * 0.25, boxSize.y * 0.3)
 
     return {
-        topLeft: Vec2(0.0 , 0.0 + rightIndent.y),
-        bottomLeft: Vec2(0.0, boxSize.y),
+        topLeft: Vec2(0.0 + rightIndent.x , 0.0 + rightIndent.y),
+        bottomLeft: Vec2(0.0 + rightIndent.x, boxSize.y),
         bottomRight: Vec2(boxSize.x - rightIndent.x, boxSize.y),
         topRight: Vec2(boxSize.x - rightIndent.x, 0.0 + rightIndent.y)
     };
@@ -38,6 +38,8 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var hideDNA = design.surface.rect(boxSize.x * 0.5, boxSize.y);
     hideDNA.attr('fill', '#ffffff');
+    hideDNA.attr('x', boxSize.x * 0.25);
+
     group.add(hideDNA);
     group.add(glyph);
 
@@ -60,7 +62,8 @@ module.exports = {
     render: renderGlyph,
 
     insets: {
-        top: 0.2
+        top: 0.2,
+        
     }
 
 };
