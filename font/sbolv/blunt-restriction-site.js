@@ -51,6 +51,10 @@ function renderGlyph(design, glyphObject, boxSize) {
     rightBracket.attr('fill', 'none');
 
 	var group = design.surface.group();
+        var hideDNA = design.surface.rect(boxSize.x * 0.2, boxSize.y);
+        hideDNA.attr('fill', '#ffffff');
+        hideDNA.attr('x', boxSize.x * 0.43);
+        group.add(hideDNA);
 	group.add(leftBracket);
 	group.add(rightBracket);
 
@@ -72,5 +76,6 @@ module.exports = {
     render: renderGlyph
 
 };
+
 
 
