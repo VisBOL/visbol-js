@@ -80,11 +80,6 @@ function renderGlyph(design, glyphObject, boxSize) {
 module.exports = {
 
     render: renderGlyph,
-
-    insets: {
-        top: 0.2
-    }
-
 };
 
 
