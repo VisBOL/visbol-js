@@ -27,13 +27,16 @@ module.exports = {
 	'protein-domain': require('./protein-domain'),
 	'recombination-site': require('./recombination-site'),
         'res': require('./res'),
-         'restriction-site': require('./restriction-site'),
+        'restriction-site': require('./restriction-site'),
 	'ribonuclease-site': require('./ribonuclease-site'),
 	'rna-stability': require('./rna-stability'),
 	'stem-loop': require('./stem-loop'),
 	'tag': require('./tag'),
         'terminator': require('./terminator'),
         'no-glyph-assigned': require('./no-glyph-assigned'),
-        'unspecified': require('./unspecified')
+        'unspecified': require('./unspecified'),
+        'protein': require('./protein'),
+        'molecule': require('./small_molecule'),
+        'rna': require('./rna'),
 }
 
