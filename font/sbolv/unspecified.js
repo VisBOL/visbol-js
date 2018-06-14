@@ -12,7 +12,7 @@ function createGeometry(boxSize) {
             bottom: Vec2(x / 2, y),
         };
     }
-    
+
 
 function renderGlyph(design, glyphObject, boxSize) {
 
@@ -31,18 +31,20 @@ function renderGlyph(design, glyphObject, boxSize) {
 	group.add(fill);
 
     var path = [
-        'M' + Vec2.toPathString(geom.top),  
+        'M' + Vec2.toPathString(geom.top),
         'L' + Vec2.toPathString(geom.left),
         'L' + Vec2.toPathString(geom.bottom),
         'L' + Vec2.toPathString(geom.right),
         'Z'
     ].join("")
 
-    let question = design.surface.text('?').move(boxSize.x / 2, geom.bottom.y / 6);
-    
+    let question = design.surface.text('?').move(boxSize.x / 2, geom.bottom.y / 7);
+    let dot = design.surface.text('.').move(boxSize.x/2.14, geom.bottom.y / 3.5) 
+
     question.attr('text-anchor', 'middle');
 
     group.add(question)
+    group.add(dot)
     group.add(design.surface.path(path))
 
     var glyph = group;
@@ -59,7 +61,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: 5 * boxSize.y / 4
+        backboneOffset: boxSize.y
     };
 }
 
