@@ -2,22 +2,17 @@
 var Vec2 = require('../../lib/geom/vec2')
 
 function createGeometry(boxSize) {
-	
+
 	var leftScale = 0.3;
 	var rightScale = 1.0 - leftScale;
-	var stemBottom = boxSize.y * 1.5;
-	var stemTop = boxSize.y * 0.40;
+	var stemBottom = boxSize.y;
+	var stemTop = boxSize.y * -0.1;
 	var stemStep = (stemBottom - stemTop) / 4.0;
 	var xScaleLeftControl = .4;
 	var xScaleRightControl = 1.0 - xScaleLeftControl;
 	var yScaleLeft = .8;
 
-	var polygonScaleX = 0.225;
-	var polygonScaleLeft = 1.0 - polygonScaleX;
-	var polygonScaleRight = 1.0 + polygonScaleX;
-	var polygonTop = 0.0;
-	var polygonMid = stemTop * 0.65;
-		
+
     return {
 		stemTop: Vec2(boxSize.x / 2.0, stemTop),
 		stemTopControl: Vec2(boxSize.x * xScaleRightControl, stemTop),
@@ -36,10 +31,11 @@ function createGeometry(boxSize) {
 		stemBottom: Vec2(boxSize.x / 2.0, stemBottom),
 		stemBottomControl: Vec2(boxSize.x * xScaleRightControl, stemBottom),
 
-		polygonTopLeft: Vec2((boxSize.x / 2.0) * polygonScaleLeft, polygonTop),
-		polygonTopRight: Vec2((boxSize.x / 2.0) * polygonScaleRight, polygonTop),
-		polygonBottomLeft: Vec2((boxSize.x / 2.0) * polygonScaleLeft, polygonMid),
-		polygonBottomRight: Vec2((boxSize.x / 2.0) * polygonScaleRight, polygonMid),
+		polygonBottomLeft: Vec2((boxSize.x) / 1.6 ,boxSize.y * -0.3),
+		polygonBottomRight: Vec2((boxSize.x) /2.4, boxSize.y * -0.3 ),
+		polygonTopLeft: Vec2((boxSize.x) / 1.6,boxSize.y * -0.5) ,
+		polygonTopRight: Vec2((boxSize.x) / 2.4 ,boxSize.y * -0.5 ),
+		polygonMid: Vec2(boxSize.x/ 2 , stemTop )
     };
 }
 
@@ -48,7 +44,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     var geom = createGeometry(boxSize);
 
     var path = [
-		
+
 		'M' + Vec2.toPathString(geom.stemTop),
 		'C' + Vec2.toPathString(geom.stemTopControl) + ' ' + Vec2.toPathString(geom.stemFirstRightControl) + ' ' + Vec2.toPathString(geom.stemFirstRight),
 		'S' + Vec2.toPathString(geom.stemFirstLeftControl) + ' ' + Vec2.toPathString(geom.stemFirstLeft),
@@ -72,12 +68,12 @@ function renderGlyph(design, glyphObject, boxSize) {
     boundingBox.attr('fill-opacity', 0);
 
 	var polygonPath = [
-		'M' + Vec2.toPathString(geom.stemTop),
+		'M' + Vec2.toPathString(geom.polygonMid),
 		'L' + Vec2.toPathString(geom.polygonBottomLeft),
 		'L' + Vec2.toPathString(geom.polygonTopLeft),
 		'L' + Vec2.toPathString(geom.polygonTopRight),
 		'L' + Vec2.toPathString(geom.polygonBottomRight),
-		'Z'
+		'L'	+ Vec2.toPathString(geom.polygonMid),
 	].join('');
 
 	var polygon = design.surface.path(polygonPath)
@@ -95,7 +91,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y * 1.5
+        backboneOffset: boxSize.y
     };
 }
 
@@ -108,5 +104,3 @@ module.exports = {
     }
 
 };
-
-

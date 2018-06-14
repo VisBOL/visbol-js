@@ -8,9 +8,9 @@ function createGeometry(boxSize) {
 
 	var leftScale = 0.3;
 	var rightScale = 1.0 - leftScale;
-	var stemBottom = boxSize.y * 1.5;
-	var stemTop = boxSize.y * 0.40;
-	var stemStep = (stemBottom - stemTop) / 4.0;
+	var stemBottom = boxSize.y;
+	var stemTop = boxSize.y * -0.1;
+	var stemStep = (stemBottom - stemTop) / 4;
 	var xScaleLeftControl = .4;
 	var xScaleRightControl = 1.0 - xScaleLeftControl;
 	var yScaleLeft = .8;
@@ -31,11 +31,11 @@ function createGeometry(boxSize) {
 		stemThirdLeftControl: Vec2(boxSize.x * xScaleLeftControl, stemTop + (stemStep * 2) + (stemStep * yScaleLeft)),
 		stemBottom: Vec2(boxSize.x / 2.0, stemBottom),
 		stemBottomControl: Vec2(boxSize.x * xScaleRightControl, stemBottom),
-		
+
 		circleSizeX: boxSize.x * sizeScale,
 		circleSizeY: boxSize.y * sizeScale,
 		circleOffsetX: (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale),
-		circleOffsetY: (-boxSize.y * sizeScale) * 0.5
+		circleOffsetY: (-boxSize.y * sizeScale) * 2
     };
 }
 
@@ -44,7 +44,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     var geom = createGeometry(boxSize);
 
     var path = [
-		
+
 		'M' + Vec2.toPathString(geom.stemTop),
 		'C' + Vec2.toPathString(geom.stemTopControl) + ' ' + Vec2.toPathString(geom.stemFirstRightControl) + ' ' + Vec2.toPathString(geom.stemFirstRight),
 		'S' + Vec2.toPathString(geom.stemFirstLeftControl) + ' ' + Vec2.toPathString(geom.stemFirstLeft),
@@ -60,7 +60,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', glyphObject.color || '#000');
     glyph.attr('stroke-width', glyphObject.thickness || '4px');
-	glyph.attr('stroke-linecap', 'round');
+		glyph.attr('stroke-linecap', 'round');
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
@@ -83,7 +83,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y * 1.5
+        backboneOffset: boxSize.y
     };
 }
 
@@ -96,5 +96,3 @@ module.exports = {
     }
 
 };
-
-

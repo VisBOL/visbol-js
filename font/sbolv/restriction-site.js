@@ -10,8 +10,9 @@ function createGeometry(boxSize) {
         stemTop: Vec2(boxSize.x / 2.0, 0),
         topLeft: Vec2(boxSize.x * leftScale, -0.5 * boxSize.y),
         topRight: Vec2(boxSize.x * rightScale, -0.5 * boxSize.y),
-		bottomLeft: Vec2(boxSize.x * leftScale, boxSize.y * 0.1),
-		bottomRight: Vec2(boxSize.x * rightScale, boxSize.y * 0.1)
+
+				bottomLeft: Vec2(boxSize.x * leftScale, boxSize.y * 0.1),
+				bottomRight: Vec2(boxSize.x * rightScale, boxSize.y * 0.1)
     };
 }
 
@@ -25,7 +26,7 @@ function renderGlyph(design, glyphObject, boxSize) {
         'L' + Vec2.toPathString(geom.stemTop),
         'M' + Vec2.toPathString(geom.topLeft),
         'L' + Vec2.toPathString(geom.bottomRight),
-		'M' + Vec2.toPathString(geom.topRight),
+				'M' + Vec2.toPathString(geom.topRight),
         'L' + Vec2.toPathString(geom.bottomLeft),
 
     ].join('');
@@ -34,7 +35,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', glyphObject.color || '#000');
     glyph.attr('stroke-width', glyphObject.thickness || '4px');
-	glyph.attr('stroke-linecap', 'round');
+		glyph.attr('stroke-linecap', 'round');
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
@@ -42,8 +43,8 @@ function renderGlyph(design, glyphObject, boxSize) {
     boundingBox.attr('fill-opacity', 0);
 
 	var group = design.surface.group();
-	group.add(glyph);
-	group.add(boundingBox);
+		group.add(glyph);
+		group.add(boundingBox);
 
     if(glyphObject.uri)
         group.attr('data-uri', glyphObject.uri)
@@ -63,6 +64,3 @@ module.exports = {
     }
 
 };
-
-
-

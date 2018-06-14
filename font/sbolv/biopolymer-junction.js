@@ -9,8 +9,8 @@ function createGeometry(boxSize) {
 	var leftScale = 0.3;
 	var rightScale = 1.0 - leftScale;
 	var waveScale = .875;
-	var stemBottom = boxSize.y * 1.5;
-	var stemTop = boxSize.y * 0.4;
+	var stemBottom = boxSize.y;
+	var stemTop = boxSize.y * -0.1;
 	var stemStep = (stemBottom - stemTop) / 6;
     return {
 		stemTop: Vec2(boxSize.x / 2.0, stemTop),
@@ -24,7 +24,7 @@ function createGeometry(boxSize) {
 		circleSizeX: boxSize.x * sizeScale,
 		circleSizeY: boxSize.y * sizeScale,
 		circleOffsetX: (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale),
-		circleOffsetY: (-boxSize.y * sizeScale) * 0.5
+		circleOffsetY: (-boxSize.y * sizeScale) * 1.5
     };
 }
 
@@ -48,7 +48,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', glyphObject.color || '#000');
     glyph.attr('stroke-width', glyphObject.thickness || '4px');
-	glyph.attr('stroke-linecap', 'round');
+		glyph.attr('stroke-linecap', 'round');
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
@@ -71,7 +71,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y * 1.5
+        backboneOffset: boxSize.y
     };
 }
 
@@ -84,5 +84,3 @@ module.exports = {
     }
 
 };
-
-
