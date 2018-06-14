@@ -6,12 +6,13 @@ function createGeometry(boxSize) {
 	var sizeScale = 0.4;
 	var offsetX = (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale);
     return {
-        stemBottom: Vec2(boxSize.x / 2.0, boxSize.y * 1.5),
-        stemTop: Vec2(boxSize.x / 2.0, boxSize.y * 0.5),
+        stemBottom: Vec2(boxSize.x / 2.0, boxSize.y),
+        stemTop: Vec2(boxSize.x / 2.0, boxSize.y * -0.4),
+
 		circleSizeX: boxSize.x * sizeScale,
 		circleSizeY: boxSize.y * sizeScale,
 		circleOffsetX: (boxSize.x / 2.0) - ((boxSize.x / 2.0) * sizeScale),
-		circleOffsetY: (-boxSize.y * sizeScale) * 0.5
+		circleOffsetY: (-boxSize.y * sizeScale) * 1.5
     };
 }
 
@@ -23,10 +24,6 @@ function renderGlyph(design, glyphObject, boxSize) {
 
         'M' + Vec2.toPathString(geom.stemBottom),
         'L' + Vec2.toPathString(geom.stemTop),
-        // 'M' + Vec2.toPathString(geom.topLeft),
-        // 'L' + Vec2.toPathString(geom.bottomRight),
-		// 'M' + Vec2.toPathString(geom.topRight),
-        // 'L' + Vec2.toPathString(geom.bottomLeft),
 
     ].join('');
 
@@ -34,7 +31,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', glyphObject.color || '#000');
     glyph.attr('stroke-width', glyphObject.thickness || '4px');
-	glyph.attr('stroke-linecap', 'round');
+		glyph.attr('stroke-linecap', 'round');
     glyph.attr('stroke-linejoin', 'round');
     glyph.attr('fill', 'none');
 
@@ -57,7 +54,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: boxSize.y * 1.5
+        backboneOffset: boxSize.y
     };
 }
 
@@ -70,5 +67,3 @@ module.exports = {
     }
 
 };
-
-
