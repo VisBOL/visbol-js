@@ -12,6 +12,7 @@ var pigeon = require('./lib/pigeon-parser')
 var genbank = require('./lib/genbank')
 
 var getDisplayList = require('./lib/getDisplayList')
+var getInteractionList = require('./lib/getInteractionList')
 
 
 var design = new Design({
@@ -58,7 +59,7 @@ function Editor(element, sourceFile, mode, parser, active) {
 }
 
 function updateDesign(displayList) {
-
+    
     if(displayList instanceof Error) {
         $('#designLoading,#design').hide();
         $('#designError').text(displayList.toString()).show();
@@ -90,7 +91,6 @@ function updateDesign(displayList) {
 
     design.displayList.components.forEach(function(component) {
 
-        console.log(component)
         component.segments.forEach(function(segment) {
 
             segment.sequence.forEach(function(glyph) {
@@ -188,7 +188,7 @@ Editor.prototype = {
 var displayListEditor = new Editor($('#sourceSBDL'), 'sample.json', 'ace/mode/json', function(source, callback) {
 
     console.log('parsing display list length ' + source.length)
-
+    
     try {
 
         var displayList = JSON.parse(source);
@@ -217,21 +217,32 @@ var editors = [
         $('#designLoading').show();
 
         SBOLDocument.loadRDF(source, function(err, sbol) {
-
+              
             if(err) {
                 callback({})
                 return
             }
 
             var component = {
-                segments: []
+                segments: [],
+                interactions: []
             }
-
+                       
             sbol.componentDefinitions.forEach(function(componentDefinition) {
-                console.log(getDisplayList(componentDefinition))
+               
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
 
+             //processing module definition
+            sbol.moduleDefinitions.forEach(function(moduleDefinition) {
+
+               currentInteractions = getInteractionList(moduleDefinition);
+               for (let i in currentInteractions) {
+
+                  component.interactions.push(currentInteractions[i]);
+               }
+           })
+            
             callback({
                 version: 1,
                 components: [
