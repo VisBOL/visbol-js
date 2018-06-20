@@ -224,9 +224,10 @@ var editors = [
             }
 
             var component = {
-                segments: [],
-                interactions: []
+                segments: []
             }
+
+            let interactions = [];
                        
             sbol.componentDefinitions.forEach(function(componentDefinition) {
                
@@ -239,7 +240,8 @@ var editors = [
                currentInteractions = getInteractionList(moduleDefinition);
                for (let i in currentInteractions) {
 
-                  component.interactions.push(currentInteractions[i]);
+                  //component.interactions.push(currentInteractions[i]);
+                  interactions.push(currentInteractions[i]);
                }
            })
             
@@ -247,6 +249,9 @@ var editors = [
                 version: 1,
                 components: [
                     component
+                ],
+                interactions: [
+                   interactions
                 ]
             })
 
