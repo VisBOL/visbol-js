@@ -250,12 +250,9 @@ var editors = [
                 components: [
                     component
                 ],
-                interactions: [
-                   interactions
-                ]
+               interactions: interactions
+                 
             })
-
-
         })
     }, true),
 
