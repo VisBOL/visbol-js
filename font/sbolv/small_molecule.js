@@ -1,4 +1,3 @@
-
 var Vec2 = require('../../lib/geom/vec2')
 var Rect = require('../../lib/geom/rect')
 
