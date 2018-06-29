@@ -51,13 +51,13 @@ function createGeometry(boxSize) {
 
     var topLeft= Vec2(-1 * x-2, 2.9 * y/5);
     var bottomLeft= Vec2(-1 * x-2, 4.75 * y/5);
-    var topRight= Vec2(-x/4, 2.9 * y/5);
-    var bottomRight=Vec2(-x/4, 4.75 * y/5);
+    var topRight= Vec2(-x/4, 0);
+    var bottomRight=Vec2(-x/4, 1.5 * y);
 
     var topLeft1= Vec2(5 * x/4, 2.9 * y/5);
-    var bottomLeft1= Vec2(5 * x/4, 4.75 * y/5);
+    var bottomLeft1= Vec2(5 * x/4, 1.5 * y);
     var topRight1= Vec2(2 * x, 2.9 * y/5);
-    var bottomRight1= Vec2(2 * x, 4.75 * y/5);
+    var bottomRight1= Vec2(2 * x, 1.5 * y);
 
 
     //Coordinates of Control Points
