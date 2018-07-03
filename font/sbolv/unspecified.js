@@ -39,7 +39,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     ].join("")
 
     let question = design.surface.text('?').move(boxSize.x / 2, geom.bottom.y / 7);
-    let dot = design.surface.text('.').move(boxSize.x/2.14, geom.bottom.y / 3.5) 
+    let dot = design.surface.text('.').move(boxSize.x/2.14, geom.bottom.y / 3.5)
 
     question.attr('text-anchor', 'middle');
 
@@ -52,9 +52,9 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke', 'black');
     glyph.attr('fill', 'none');
 
-    if (glyphObject.uri)
+    if (glyphObject.uri) {
         glyph.attr('data-uri', glyphObject.uri)
-
+      }
     var group = design.surface.group();
 
     group.add(glyph);

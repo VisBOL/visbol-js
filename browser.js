@@ -228,7 +228,7 @@ var editors = [
             }
 
             sbol.componentDefinitions.forEach(function(componentDefinition) {
-                console.log(getDisplayList(componentDefinition))
+                
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
 
@@ -356,6 +356,7 @@ var splitter = $("#split").splitter({
     outline: true,
     resizeTo: window
 });
+
 
 
 
