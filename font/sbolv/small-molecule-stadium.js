@@ -37,23 +37,23 @@ function renderGlyph(design, glyphObject, boxSize) {
   var group = design.surface.group();
 
   glyph1.attr('stroke','dark gray');
-  glyph1.attr('fill', glyphObject.color || '#787878');
+  glyph1.attr('fill', glyphObject.color || '#85C1E9');
   glyph1.attr('stroke-width', glyphObject.thickness ||'2px');
   glyph1.attr('stroke-linejoin', 'square');
 
   glyph2.attr('stroke','black');
-  glyph2.attr('fill', glyphObject.color || '#787878');
+  glyph2.attr('fill', glyphObject.color || '#85C1E9');
   glyph2.attr('stroke-width', glyphObject.thickness ||'2px');
   glyph2.attr('stroke-linejoin', 'square');
 
   glyph3.attr('stroke','black');
-  glyph3.attr('fill', glyphObject.color || '#787878');
+  glyph3.attr('fill', glyphObject.color || '#85C1E9');
   glyph3.attr('stroke-width', glyphObject.thickness ||'2px');
   glyph3.attr('stroke-linejoin', 'round');
   glyph3.attr({ cx: boxSize.x*2, cy: boxSize.y/2 })
 
   glyph4.attr('stroke','black');
-  glyph4.attr('fill', glyphObject.color || '#787878');
+  glyph4.attr('fill', glyphObject.color || '#85C1E9');
   glyph4.attr('stroke-width', glyphObject.thickness ||'2px');
   glyph4.attr('stroke-linejoin', 'round');
 

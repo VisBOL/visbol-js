@@ -7,9 +7,9 @@ function renderGlyph(design, glyphObject, boxSize) {
 var circle = design.surface.circle(boxSize.x/2);
 var group = design.surface.group();
 
-circle.center(-boxSize.x/2, boxSize.y/2)
+circle.center(boxSize.x/2, boxSize.y/2)
 circle.attr('stroke', 'black');
-circle.attr('fill','gray');
+circle.attr('fill', glyphObject.color ||'#85C1E9');
 circle.attr('stroke-width', glyphObject.thickness || '3px');
 
 var boundingBox = design.surface.rect(boxSize.x, boxSize.y);
