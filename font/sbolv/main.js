@@ -36,7 +36,7 @@ module.exports = {
 'no-glyph-assigned': require('./no-glyph-assigned'),
 'unspecified': require('./unspecified'),
 'protein': require('./protein'),
-'molecule': require('./small_molecule'),
+'molecule': require('./small-molecule-circle'),
 'rna': require('./rna'),
 'dna': require('./dna'),
 'complex': require('./complex'),
