@@ -227,20 +227,19 @@ var editors = [
                 segments: []
             }
 
-            let interactions = [];
+            var interactions = [];
                        
             sbol.componentDefinitions.forEach(function(componentDefinition) {
                
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
 
-             //processing module definition
+            //processing module definition
             sbol.moduleDefinitions.forEach(function(moduleDefinition) {
 
                currentInteractions = getInteractionList(moduleDefinition);
                for (let i in currentInteractions) {
-
-                  //component.interactions.push(currentInteractions[i]);
+                   
                   interactions.push(currentInteractions[i]);
                }
            })
