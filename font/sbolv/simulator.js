@@ -6,12 +6,12 @@ function createGeometry(boxSize) {
    
     return {
          
-        top: Vec2(boxSize.x/2, boxSize.y/4),
-        bottom: Vec2(boxSize.x/2, boxSize.y),
+        top: Vec2(boxSize.x/2, boxSize.y * 0.1),
+        bottom: Vec2(boxSize.x/2, boxSize.y * 0.8),
 
-        left: Vec2(boxSize.x/3,boxSize.y/4),
-        right: Vec2((boxSize.x * 2 )/3, boxSize.y/4),
-        arrowTop:Vec2(boxSize.x/2, boxSize.y * 0.1) 
+        left: Vec2(boxSize.x/3,boxSize.y * 0.8),
+        right: Vec2((boxSize.x * 2 )/3, boxSize.y * 0.8),
+        arrowBottom:Vec2(boxSize.x/2, boxSize.y) 
 
     };
 }
@@ -27,7 +27,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
         'M' + Vec2.toPathString(geom.left),
         'L' + Vec2.toPathString(geom.right),
-        'L' + Vec2.toPathString(geom.arrowTop),
+        'L' + Vec2.toPathString(geom.arrowBottom),
         'Z'
 
     ].join('');
@@ -37,7 +37,6 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', 'red');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
-    glyph.attr('fill', 'red');
     
     group.add(glyph);
 

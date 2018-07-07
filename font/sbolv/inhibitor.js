@@ -45,8 +45,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     group.add(boundingBox);
 
     return {
-        glyph: group,
-        //backboneOffset: boxSize.y
+        glyph: group
     };
 }
 
