@@ -38,11 +38,11 @@ function renderGlyph(design, glyphObject, boxSize) {
     var glyph = design.surface.path(path1);
     var group = design.surface.group()
 
-    glyph.attr('stroke', glyphObject.color || '#000000');
+    glyph.attr('stroke', 'black');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
     glyph.attr('stroke-linecap', 'square');
     glyph.attr('stroke-linejoin', 'square');
-    glyph.attr('fill','gray');
+    glyph.attr('fill', glyphObject.color || '#ABEBC6');
 
     group.add(glyph);
 

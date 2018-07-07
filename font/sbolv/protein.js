@@ -9,20 +9,20 @@ var smallBox = design.surface.rect(boxSize.x/6,boxSize.y/9);
 var group = design.surface.group();
 
 largeCircle.attr('stroke','black');
-largeCircle.attr('fill', glyphObject.color || '#787878');
+largeCircle.attr('fill', glyphObject.color || '#F1948A');
 largeCircle.attr('stroke-width', glyphObject.thickness ||'2px');
 largeCircle.attr('stroke-linejoin', 'round');
 largeCircle.attr({ cx: boxSize.x/2, cy: boxSize.y/2})
 largeCircle.radius(20)
 
 smallCircle.attr('stroke','black');
-smallCircle.attr('fill', glyphObject.color || '#787878');
+smallCircle.attr('fill', glyphObject.color || '#F1948A');
 smallCircle.attr('stroke-width', glyphObject.thickness ||'2px');
 smallCircle.attr('stroke-linejoin', 'round');
 smallCircle.attr({ cx: boxSize.x/5, cy: boxSize.y/1.1 })
 
 smallBox.attr('stroke','dark gray');
-smallBox.attr('fill', glyphObject.color || '#787878');
+smallBox.attr('fill', glyphObject.color || '#F1948A');
 smallBox.attr('stroke-width', glyphObject.thickness ||'2px');
 smallBox.attr('stroke-linejoin', 'round');
 smallBox.attr({ x: boxSize.x/4.8, y: boxSize.y/1.35 })
