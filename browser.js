@@ -242,8 +242,9 @@ var editors = [
                    
                   interactions.push(currentInteractions[i]);
                }
+     
            })
-            
+                       
             callback({
                 version: 1,
                 components: [
