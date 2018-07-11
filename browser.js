@@ -13,7 +13,6 @@ var genbank = require('./lib/genbank')
 
 var getDisplayList = require('./lib/getDisplayList')
 
-const maxGlyphsLimit = 30;
 
 var design = new Design({
     element: document.getElementById('design'),
@@ -229,19 +228,9 @@ var editors = [
             }
 
             sbol.componentDefinitions.forEach(function(componentDefinition) {
-                console.log(getDisplayList(componentDefinition))
-                component.segments = component.segments.concat(getDisplayList(componentDefinition,null,null,maxGlyphsLimit).components[0].segments[0])
+                
+                component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
-
-          var segment = component.segments;
-          segment.forEach(function(segments){
-            var sequences = segments.sequence;
-               if (sequences.length > maxGlyphsLimit) {
-                 sequences[maxGlyphsLimit].type = "omitted";
-                 sequences[maxGlyphsLimit].name = "Omitted";
-            }
-
-         });
 
             callback({
                 version: 1,
@@ -367,3 +356,8 @@ var splitter = $("#split").splitter({
     outline: true,
     resizeTo: window
 });
+
+
+
+
+
