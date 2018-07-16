@@ -33,7 +33,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     var glyph = design.surface.path(path);
     var group = design.surface.group()
 
-    glyph.attr('stroke', '#E74C3C');
+    glyph.attr('stroke', '#2ECC71');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
     glyph.attr('fill', 'none');
     

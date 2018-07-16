@@ -241,6 +241,7 @@ var editors = [
                for (let i in currentInteractions) {
                    
                   interactions.push(currentInteractions[i]);
+                  
                }
      
            })
