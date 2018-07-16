@@ -1,18 +1,16 @@
 
-var Vec2 = require('../../lib/geom/vec2')
-var Rect = require('../../lib/geom/rect')
+var Vec2 = require('../../../lib/geom/vec2')
+var Rect = require('../../../lib/geom/rect')
 
 function createGeometry(boxSize) {
    
     return {
          
-        top: Vec2(boxSize.x/2, boxSize.y * 0.1),
-        bottom: Vec2(boxSize.x/2, boxSize.y * 0.8),
-
-        left: Vec2(boxSize.x/3,boxSize.y * 0.8),
-        right: Vec2((boxSize.x * 2 )/3, boxSize.y * 0.8),
-        arrowBottom:Vec2(boxSize.x/2, boxSize.y) 
-
+        left: Vec2(boxSize.x,boxSize.y * 0.5),
+        right: Vec2(1.7*boxSize.x, boxSize.y * 0.5),
+        arrowTop:Vec2(1.7 * boxSize.x, boxSize.y * 0.4), 
+        arrowBottom:Vec2(1.7 * boxSize.x, boxSize.y * 0.6),
+        arrowPick:Vec2(boxSize.x * 1.8, boxSize.y * 0.5),
     };
 }
 
@@ -22,12 +20,12 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     var path = [
 
-        'M' + Vec2.toPathString(geom.top),
-        'L' + Vec2.toPathString(geom.bottom),
-
         'M' + Vec2.toPathString(geom.left),
         'L' + Vec2.toPathString(geom.right),
+
+        'M' + Vec2.toPathString(geom.arrowTop),
         'L' + Vec2.toPathString(geom.arrowBottom),
+        'L' + Vec2.toPathString(geom.arrowPick),
         'Z'
 
     ].join('');
@@ -35,8 +33,9 @@ function renderGlyph(design, glyphObject, boxSize) {
     var glyph = design.surface.path(path);
     var group = design.surface.group()
 
-    glyph.attr('stroke', 'red');
+    glyph.attr('stroke', '#2ECC71');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
+    glyph.attr('fill', 'none');
     
     group.add(glyph);
 

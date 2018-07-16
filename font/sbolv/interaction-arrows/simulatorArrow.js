@@ -1,15 +1,17 @@
 
-var Vec2 = require('../../lib/geom/vec2')
-var Rect = require('../../lib/geom/rect')
+var Vec2 = require('../../../lib/geom/vec2')
+var Rect = require('../../../lib/geom/rect')
 
 function createGeometry(boxSize) {
    
     return {
          
-        top: Vec2(boxSize.x/2,0),
-        bottomLeft: Vec2(boxSize.x/4,(2*boxSize.y)/4),
-        bottomRight: Vec2((boxSize.x * 3 )/4, (2*boxSize.y)/4),
-        middleBottom: Vec2(boxSize.x/2, (2*boxSize.y)/4)
+        top: Vec2(boxSize.x/2, boxSize.y * 0.1),
+        bottom: Vec2(boxSize.x/2, boxSize.y * 0.8),
+
+        left: Vec2(boxSize.x/3,boxSize.y * 0.8),
+        right: Vec2((boxSize.x * 2 )/3, boxSize.y * 0.8),
+        arrowBottom:Vec2(boxSize.x/2, boxSize.y) 
 
     };
 }
@@ -21,10 +23,12 @@ function renderGlyph(design, glyphObject, boxSize) {
     var path = [
 
         'M' + Vec2.toPathString(geom.top),
-        'L' + Vec2.toPathString(geom.middleBottom),
+        'L' + Vec2.toPathString(geom.bottom),
 
-        'M' + Vec2.toPathString(geom.bottomLeft),
-        'L' + Vec2.toPathString(geom.bottomRight)
+        'M' + Vec2.toPathString(geom.left),
+        'L' + Vec2.toPathString(geom.right),
+        'L' + Vec2.toPathString(geom.arrowBottom),
+        'Z'
 
     ].join('');
 
