@@ -35,7 +35,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
     glyph.attr('stroke', '#2ECC71');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
-    glyph.attr('fill', 'none');
+    glyph.attr('fill', '#2ECC71');
     
     group.add(glyph);
 
