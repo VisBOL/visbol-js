@@ -2,90 +2,121 @@
 var Vec2 = require('../../lib/geom/vec2')
 var Rect = require('../../lib/geom/rect')
 
-
 function createGeometry(boxSize) {
 
+    function createTangentLine(pointA, pointB) {
+
+      var lengthX = pointB.x - pointA.x;
+      var lengthY = pointB.y - pointA.y;
+
+      return {
+          length: Math.sqrt(Math.pow(lengthX, 2) + Math.pow(lengthY, 2)),
+          angle: Math.atan2(lengthY, lengthX)
+      };
+
+    }
+
+    function createControlPoint(current, previous, next) {
+
+         const smoothing = 0.2;
+         var p = (previous === null) ? current : previous;
+         var n = (next === null) ? current: next;
+
+         var line = createTangentLine(n,p);
+
+         return {
+             x: current.x + (Math.cos(line.angle + Math.PI) * line.length * smoothing),
+             y: current.y + (Math.sin(line.angle + Math.PI) * line.length * smoothing)
+         };
+    }
+    // Coordinates of Points to Connect
+    var x = boxSize.x;
+    var y = boxSize.y;
+    var stepSize = 3*x/14
+    var pointA = Vec2(5*x/4, y);
+    var pointB = Vec2(pointA.x - stepSize, 3*y/4);
+    var pointC = Vec2(pointA.x - 2*stepSize, y );
+    var pointD = Vec2(pointA.x - 3*stepSize, 3*y/4);
+    var pointE = Vec2(pointA.x - 4*stepSize, y );
+    var pointF = Vec2(pointA.x - 5*stepSize, 3*y/4);
+    var pointG = Vec2(pointA.x - 6*stepSize, y );
+    var pointH = Vec2(pointA.x - 7*stepSize, 3*y/4);
+
+
+    //Coordinates of Control Points
+    var controlPoint1 = createControlPoint(pointA, pointB, null);
+    var controlPoint2 = createControlPoint(pointB, pointC, pointA);
+    var controlPoint3 = createControlPoint(pointC, pointD, pointB );
+    var controlPoint4 = createControlPoint(pointD, pointE, pointC);
+    var controlPoint5 = createControlPoint(pointE, pointF, pointD);
+    var controlPoint6 = createControlPoint(pointF, pointG, pointE);
+    var controlPoint7 = createControlPoint(pointG, pointH, pointF);
+    var controlPoint8 = createControlPoint(pointH, null, pointG);
+
+
+
     return {
-      leftEyeLeft: Vec2(boxSize.x * 0.25, boxSize.x * 0.4),
-      leftEyeRight: Vec2(boxSize.x * 0.3, boxSize.x * 0.4),
-      rightEyeleft: Vec2(boxSize.x * 0.75, boxSize.x * 0.4),
-      rightEyeright: Vec2(boxSize.x * 0.8, boxSize.x * 0.4),
-      left: Vec2(boxSize.x * 0.3, boxSize.x * 0.8),
-      right: Vec2(boxSize.x * 0.7, boxSize.x * 0.8),
-      noseTop: Vec2(boxSize.x * 0.5, boxSize.x * 0.5),
-      noseBottom: Vec2(boxSize.x * 0.5, boxSize.x * 0.7),    
-   };
-}
 
-function renderGlyph(design, glyphObject, boxSize) {
 
+       //coordinate of pick
+        pointA:  pointA,
+        pointB:  pointB,
+        pointC:  pointC,
+        pointD:  pointD,
+        pointE:  pointE,
+        pointF:  pointF,
+        pointG:  pointG,
+        pointH:  pointH,
+
+      //coordiantes of control ponits
+      controlPoint1: controlPoint1,
+      controlPoint2: controlPoint2,
+      controlPoint3: controlPoint3,
+      controlPoint4: controlPoint4,
+      controlPoint5: controlPoint5,
+      controlPoint6: controlPoint6,
+      controlPoint7: controlPoint7,
+      controlPoint8: controlPoint8,
+
+
+
+    };
+    }
+    function renderGlyph(design, glyphObject, boxSize) {
     var geom = createGeometry(boxSize);
-    
+
 
     var path = [
+        'M' + Vec2.toPathString(geom.pointA),
+        'C' + Vec2.toPathString(geom.controlPoint1) + ' ' +  Vec2.toPathString(geom.controlPoint2) + ' ' + Vec2.toPathString(geom.pointB),
+        'S' + Vec2.toPathString(geom.controlPoint3) + ' ' + Vec2.toPathString(geom.pointC),
+        'S' + Vec2.toPathString(geom.controlPoint4) + ' ' + Vec2.toPathString(geom.pointD),
+        'S' + Vec2.toPathString(geom.controlPoint5) + ' ' + Vec2.toPathString(geom.pointE),
+        'S' + Vec2.toPathString(geom.controlPoint6) + ' ' + Vec2.toPathString(geom.pointF),
+        'S' + Vec2.toPathString(geom.controlPoint7) + ' ' + Vec2.toPathString(geom.pointG),
+        'S' + Vec2.toPathString(geom.controlPoint8) + ' ' + Vec2.toPathString(geom.pointH),
 
-        'M' + Vec2.toPathString(geom.left),
-        'L' + Vec2.toPathString(geom.right),
-         
-    ].join('');
+     ].join('');
 
-    var path2 = [
+    var glyph = design.surface.path(path);
+    var group = design.surface.group()
 
-        'M' + Vec2.toPathString(geom.leftEyeLeft),
-        'L' + Vec2.toPathString(geom.leftEyeRight),
-        'M' + Vec2.toPathString(geom.rightEyeleft),
-        'L' + Vec2.toPathString(geom.rightEyeright),
-         
-    ].join('');
-
-    var path3 = [
-
-        'M' + Vec2.toPathString(geom.noseTop),
-        'L' + Vec2.toPathString(geom.noseBottom)
-        
-    ].join('');
+    glyph.attr('stroke', glyphObject.color || '#000000');
+    glyph.attr('stroke-width', glyphObject.thickness || '3px');
+    glyph.attr('stroke-linecap', 'round');
+   glyph.attr('fill', glyphObject.color || '#FFFFFF');
 
 
-    var glyph1 = design.surface.circle(
-        boxSize.x, boxSize.x);
+    group.add(glyph);
 
-    glyph1.attr('stroke', 'black');
-    glyph1.attr('fill', glyphObject.color || '#cee');
-    glyph1.attr('stroke-width', glyphObject.thickness || '5px');
+    boundingBox = design.surface.rect(boxSize.x, boxSize.y);
+    boundingBox.attr('fill-opacity', 0);
 
-    var glyph2 = design.surface.path(path);
-   
-    glyph2.attr('stroke', 'red');
-    glyph2.attr('fill', 'none');
-    glyph2.attr('stroke-width', glyphObject.thickness || '3px');
-    glyph2.attr('stroke-linecap', 'round');
-
-    var glyph3 = design.surface.path(path2);
-   
-    glyph3.attr('stroke', 'green');
-    glyph3.attr('fill', 'none');
-    glyph3.attr('stroke-width', glyphObject.thickness || '3px');
-    glyph3.attr('stroke-linecap', 'round');
-
-    var glyph4 = design.surface.path(path3);
-   
-    glyph4.attr('stroke', 'purple');
-    glyph4.attr('fill', 'none');
-    glyph4.attr('stroke-width', glyphObject.thickness || '3px');
-    glyph4.attr('stroke-linecap', 'round');
-  
-
-    var group = design.surface.group();
-    group.add(glyph1);
-    group.add(glyph2);
-    group.add(glyph3);
-    group.add(glyph4);
-
-     boundingBox.attr('fill-opacity', 0);
-
-    if(glyphObject.uri)
+    if(glyphObject.uri) {
         boundingBox.attr('data-uri', glyphObject.uri);
+}
     group.add(boundingBox);
+
     return {
         glyph: group,
         backboneOffset: boxSize.y
@@ -94,9 +125,7 @@ function renderGlyph(design, glyphObject, boxSize) {
 
 module.exports = {
 
-    render: renderGlyph
+    render: renderGlyph,
+
 
 };
-
-
-
