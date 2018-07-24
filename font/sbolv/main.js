@@ -40,4 +40,6 @@ module.exports = {
 'rna': require('./rna'),
 'dna': require('./dna'),
 'complex': require('./complex'),
+'protein-protein-complex':require('./protein-protein-complex'),
+'rna-protein-complex':require('./rna-protein-complex')
 }
