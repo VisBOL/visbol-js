@@ -12,6 +12,7 @@ var pigeon = require('./lib/pigeon-parser')
 var genbank = require('./lib/genbank')
 
 var getDisplayList = require('./lib/getDisplayList')
+var getInteractionList = require('./lib/getInteractionList')
 
 
 var design = new Design({
@@ -90,7 +91,6 @@ function updateDesign(displayList) {
 
     design.displayList.components.forEach(function(component) {
 
-        console.log(component)
         component.segments.forEach(function(segment) {
 
             segment.sequence.forEach(function(glyph) {
@@ -227,19 +227,32 @@ var editors = [
                 segments: []
             }
 
-            sbol.componentDefinitions.forEach(function(componentDefinition) {
-                
+            var interactions = [];
+
+            sbol.componentDefinitions.forEach(function(componentDefinition) {             
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
+
+            //processing module definition
+            sbol.moduleDefinitions.forEach(function(moduleDefinition) {
+
+               currentInteractions = getInteractionList(moduleDefinition);
+               for (let i in currentInteractions) {
+
+                  interactions.push(currentInteractions[i]);
+
+               }
+
+           })
 
             callback({
                 version: 1,
                 components: [
                     component
-                ]
+                ],
+               interactions: interactions
+
             })
-
-
         })
     }, true),
 
@@ -356,8 +369,3 @@ var splitter = $("#split").splitter({
     outline: true,
     resizeTo: window
 });
-
-
-
-
-
