@@ -4,14 +4,13 @@
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
-    "sboljs": "^2.0.0",
+    "rdf-ext": "^1.1.2",
+    "rdf-graph-abstract": "^0.3.0",
+    "rdf-parser-rdfxml": "^0.3.0-rc1",
+    "sboljs": "^2.1.9",
     "sbolmeta": "^0.1.10",
     "sha1": "^1.1.1",
-    "urijs": "^1.16.1",
-    "rdf-ext": "^1.1.0",
-    "rdf-graph-abstract": "^0.3.0",
-    "rdf-parser-rdfxml": "^0.3.0-rc1"
-     
+    "urijs": "^1.16.1"
   },
   "devDependencies": {},
   "scripts": {
