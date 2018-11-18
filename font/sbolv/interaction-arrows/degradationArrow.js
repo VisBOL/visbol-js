@@ -6,13 +6,13 @@ function createGeometry(boxSize) {
    
     return {
          
-        left: Vec2(boxSize.x,boxSize.y * 0.5),
-        right: Vec2(1.5*boxSize.x, boxSize.y * 0.5),
-        arrowTop:Vec2(1.5 * boxSize.x, boxSize.y * 0.4), 
-        arrowBottom:Vec2(1.5 * boxSize.x, boxSize.y * 0.6),
-        arrowPick:Vec2(boxSize.x * 1.6, boxSize.y * 0.5),
-        lineTop:Vec2(boxSize.x * 2, boxSize.y/2 - boxSize.y/8),
-        lineBottom:Vec2(boxSize.x * 1.7, boxSize.y/2 + boxSize.y/8)
+        left: Vec2(0,boxSize.y * 0.5),
+        right: Vec2(0.5*boxSize.x, boxSize.y * 0.5),
+        arrowTop:Vec2(0.5 * boxSize.x, boxSize.y * 0.4), 
+        arrowBottom:Vec2(0.5 * boxSize.x, boxSize.y * 0.6),
+        arrowPick:Vec2(boxSize.x * 0.6, boxSize.y * 0.5),
+        lineTop:Vec2(boxSize.x * 1.05, boxSize.y/2 - boxSize.y/8),
+        lineBottom:Vec2(boxSize.x * 0.8, boxSize.y/2 + boxSize.y/8)
     };
 }
 
@@ -43,7 +43,7 @@ function renderGlyph(design, glyphObject, boxSize) {
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
     glyph.attr('fill', '#000080');
 
-    circle.center(boxSize.x * 1.85, boxSize.y/2)
+    circle.center(boxSize.x * (0.6 + 1/3), boxSize.y/2)
     circle.attr('stroke', '#000080');
     circle.attr('fill', 'none');
     circle.attr('stroke-width', glyphObject.thickness || '3px');
