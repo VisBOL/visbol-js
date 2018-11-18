@@ -126,7 +126,7 @@ function createGeometry(boxSize) {
     var glyph = design.surface.path(path);
     var group = design.surface.group()
 
-    glyph.attr('stroke', glyphObject.color || '#000000');
+    glyph.attr('stroke', glyphObject.color || 'purple');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
     glyph.attr('stroke-linecap', 'round');
     glyph.attr('fill-opacity', 0);
@@ -143,16 +143,16 @@ function createGeometry(boxSize) {
         boundingBox.attr('data-uri', glyphObject.uri);
 }
     group.add(boundingBox);
-
+    console.log("hello")
     return {
         glyph: group,
-        backboneOffset: boxSize.y
+        backboneOffset: 1.2 * boxSize.y
     };
 }
 
 module.exports = {
 
-    render: renderGlyph,
-
+    render: renderGlyph
 
 };
+
