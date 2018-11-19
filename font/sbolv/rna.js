@@ -119,13 +119,12 @@ function createGeometry(boxSize) {
 
     return {
         glyph: group,
-        backboneOffset: 1.2 * boxSize.y
+        backboneOffset: 1.2 * boxSize.y,
+        glyphLength: createGeometry(boxSize).pointA.x
     };
 }
 
 module.exports = {
 
-    render: renderGlyph,
-
-
+    render: renderGlyph
 };
