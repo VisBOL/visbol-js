@@ -236,7 +236,8 @@ var editors = [
 
            //processing module definition
            sbol.moduleDefinitions.forEach(function(moduleDefinition) {
-
+           
+               console.log(moduleDefinition)
                currentInteractions = getInteractionList(moduleDefinition);
                for (let i in currentInteractions) {
 
