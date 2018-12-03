@@ -33,7 +33,7 @@ function createGeometry(boxSize) {
     var x = boxSize.x;
     var y = boxSize.y;
     var stepSize = 3*x/14
-    var pointA = Vec2(3*x/4, 3*y/4);
+    var pointA = Vec2(5 *x/4, 3*y/4);
     var pointB = Vec2(pointA.x - stepSize, 2*y/4);
     var pointC = Vec2(pointA.x - 2*stepSize, 3*y/4 );
     var pointD = Vec2(pointA.x - 3*stepSize, 2*y/4);
@@ -41,6 +41,7 @@ function createGeometry(boxSize) {
     var pointF = Vec2(pointA.x - 5*stepSize, 2*y/4);
     var pointG = Vec2(pointA.x - 6*stepSize, 3*y/4 );
     var pointH = Vec2(pointA.x - 7*stepSize, 2*y/4);
+
 
 
     //Coordinates of Control Points

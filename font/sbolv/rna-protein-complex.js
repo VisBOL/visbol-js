@@ -143,7 +143,7 @@ function createGeometry(boxSize) {
         boundingBox.attr('data-uri', glyphObject.uri);
 }
     group.add(boundingBox);
-    console.log("hello")
+    
     return {
         glyph: group,
         backboneOffset: 1.2 * boxSize.y
