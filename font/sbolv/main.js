@@ -41,5 +41,7 @@ module.exports = {
 'dna': require('./dna'),
 //this is the glyph for complex when we can't specify its type
 'complex': require('./complex'),
-'molecule_protein_complex': require('./small-molecule-complex')
+'molecule-protein-complex': require('./small-molecule-complex'),
+'protein-protein-complex':require('./protein-protein-complex'),
+'rna-protein-complex':require('./rna-protein-complex')
 }

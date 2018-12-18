@@ -6,11 +6,11 @@ function createGeometry(boxSize) {
    
     return {
          
-        left: Vec2(boxSize.x,boxSize.y * 0.5),
-        right: Vec2(1.7*boxSize.x, boxSize.y * 0.5),
-        arrowTop:Vec2(1.7 * boxSize.x, boxSize.y * 0.4), 
-        arrowBottom:Vec2(1.7 * boxSize.x, boxSize.y * 0.6),
-        arrowPick:Vec2(boxSize.x * 1.8, boxSize.y * 0.5),
+        left: Vec2(0,boxSize.y * 0.5),
+        right: Vec2(0.7*boxSize.x, boxSize.y * 0.5),
+        arrowTop:Vec2(0.7 * boxSize.x, boxSize.y * 0.4), 
+        arrowBottom:Vec2(0.7 * boxSize.x, boxSize.y * 0.6),
+        arrowPick:Vec2(boxSize.x * 0.8, boxSize.y * 0.5),
     };
 }
 

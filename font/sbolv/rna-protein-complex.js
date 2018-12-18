@@ -33,15 +33,14 @@ function createGeometry(boxSize) {
     var x = boxSize.x;
     var y = boxSize.y;
     var stepSize = 3*x/14
-    var pointA = Vec2(5 *x/4, 3*y/4);
-    var pointB = Vec2(pointA.x - stepSize, 2*y/4);
-    var pointC = Vec2(pointA.x - 2*stepSize, 3*y/4 );
-    var pointD = Vec2(pointA.x - 3*stepSize, 2*y/4);
-    var pointE = Vec2(pointA.x - 4*stepSize, 3*y/4 );
-    var pointF = Vec2(pointA.x - 5*stepSize, 2*y/4);
-    var pointG = Vec2(pointA.x - 6*stepSize, 3*y/4 );
-    var pointH = Vec2(pointA.x - 7*stepSize, 2*y/4);
-
+    var pointA = Vec2(5*x/4, y);
+    var pointB = Vec2(pointA.x - stepSize, 3*y/4);
+    var pointC = Vec2(pointA.x - 2*stepSize, y );
+    var pointD = Vec2(pointA.x - 3*stepSize, 3*y/4);
+    var pointE = Vec2(pointA.x - 4*stepSize, y );
+    var pointF = Vec2(pointA.x - 5*stepSize, 3*y/4);
+    var pointG = Vec2(pointA.x - 6*stepSize, y );
+    var pointH = Vec2(pointA.x - 7*stepSize, 3*y/4);
 
 
     //Coordinates of Control Points
@@ -84,6 +83,31 @@ function createGeometry(boxSize) {
     };
     }
     function renderGlyph(design, glyphObject, boxSize) {
+
+      var largeCircle = design.surface.circle(boxSize.x/2);
+      var smallCircle = design.surface.circle(boxSize.x/4);
+      var smallBox = design.surface.rect(boxSize.x/3,boxSize.y/5.5);
+      var group = design.surface.group();
+
+      largeCircle.attr('stroke','black');
+      largeCircle.attr('fill', glyphObject.color || '#F1948A');
+      largeCircle.attr('stroke-width', glyphObject.thickness ||'2px');
+      largeCircle.attr('stroke-linejoin', 'round');
+      largeCircle.attr({ cx: boxSize.x/2, cy: 4*boxSize.y/5})
+      largeCircle.radius(20)
+
+      smallCircle.attr('stroke','black');
+      smallCircle.attr('fill', glyphObject.color || '#F1948A');
+      smallCircle.attr('stroke-width', glyphObject.thickness ||'2px');
+      smallCircle.attr('stroke-linejoin', 'round');
+      smallCircle.attr({ cx: boxSize.x/5, cy: 1.15*boxSize.y })
+
+      smallBox.attr('stroke','dark gray');
+      smallBox.attr('fill', glyphObject.color || '#F1948A');
+      smallBox.attr('stroke-width', glyphObject.thickness ||'2px');
+      smallBox.attr('stroke-linejoin', 'round');
+      smallBox.attr({ x: boxSize.x/6, y: 0.98*boxSize.y })
+
     var geom = createGeometry(boxSize);
 
 
@@ -105,9 +129,11 @@ function createGeometry(boxSize) {
     glyph.attr('stroke', glyphObject.color || 'purple');
     glyph.attr('stroke-width', glyphObject.thickness || '3px');
     glyph.attr('stroke-linecap', 'round');
-   glyph.attr('fill', glyphObject.color || '#FFFFFF');
+    glyph.attr('fill-opacity', 0);
 
-
+    group.add(largeCircle);
+    group.add(smallCircle);
+    group.add(smallBox);
     group.add(glyph);
 
     boundingBox = design.surface.rect(boxSize.x, boxSize.y);
@@ -117,15 +143,16 @@ function createGeometry(boxSize) {
         boundingBox.attr('data-uri', glyphObject.uri);
 }
     group.add(boundingBox);
-
+    
     return {
         glyph: group,
-        backboneOffset: 1.2 * boxSize.y,
-        glyphLength: createGeometry(boxSize).pointA.x
+        backboneOffset: 1.2 * boxSize.y
     };
 }
 
 module.exports = {
 
     render: renderGlyph
+
 };
+

@@ -11,7 +11,7 @@ var soToGlyphType = require('./lib/soToGlyphType')
 var pigeon = require('./lib/pigeon-parser')
 var genbank = require('./lib/genbank')
 
-var getDisplayList = require('./lib/getDisplayList')
+var getDisplayList = require('./lib/getDisplayList').getDisplayList
 var getInteractionList = require('./lib/getInteractionList')
 
 
@@ -236,7 +236,8 @@ var editors = [
 
            //processing module definition
            sbol.moduleDefinitions.forEach(function(moduleDefinition) {
-
+           
+               console.log(moduleDefinition)
                currentInteractions = getInteractionList(moduleDefinition);
                for (let i in currentInteractions) {
 

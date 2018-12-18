@@ -4,17 +4,17 @@ var Rect = require('../../lib/geom/rect')
 function createGeometry(boxSize) {
   var x = boxSize.x;
   var y = boxSize.y;
-  console.log(boxSize.x)
+  
 return {
 
-  topLeft: Vec2(-0.25*x,y*0.2),
-    leftOne: Vec2(-0.5*x,y*0.4),
-    leftTwo: Vec2(-0.5*x,y*0.8),
-  bottomLeft: Vec2(-0.25*x,y),
-  bottomRight: Vec2(x,y),
-    rightOne: Vec2(1.25*x,y*0.4),
-    rightTwo: Vec2(1.25*x,y*0.8),
-  topRight: Vec2(x,y*0.2),
+  topLeft: Vec2(0.25*x,y*0.2),
+    leftOne: Vec2(0,y*0.4),
+    leftTwo: Vec2(0,y*0.8),
+  bottomLeft: Vec2(0.25*x,y),
+  bottomRight: Vec2(1.5 *x,y),
+    rightOne: Vec2(1.75*x,y*0.4),
+    rightTwo: Vec2(1.75*x,y*0.8),
+  topRight: Vec2(1.5 * x,y*0.2),
 
 };
 }
