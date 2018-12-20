@@ -2,7 +2,7 @@
 module.exports = {
 'InhibitorArrow': require('./inhibitorArrow'),
 'ProductArrow': require('./productArrow'),
-'SimulatorArrow': require('./simulatorArrow'),
+'StimulatorArrow': require('./stimulatorArrow'),
 'ReactantArrow': require('./reactantArrow'),
 'DegradationArrow': require('./degradationArrow')
 }
