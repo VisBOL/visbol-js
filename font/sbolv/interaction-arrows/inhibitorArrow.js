@@ -7,9 +7,9 @@ function createGeometry(boxSize) {
     return {
          
         top: Vec2(boxSize.x/2,0),
-        bottomLeft: Vec2(boxSize.x/4,(2*boxSize.y)/4),
-        bottomRight: Vec2((boxSize.x * 3 )/4, (2*boxSize.y)/4),
-        middleBottom: Vec2(boxSize.x/2, (2*boxSize.y)/4)
+        bottomLeft: Vec2(boxSize.x/4,boxSize.y * 0.6),
+        bottomRight: Vec2((boxSize.x * 3 )/4, boxSize.y * 0.6),
+        middleBottom: Vec2(boxSize.x/2, boxSize.y * 0.6)
 
     };
 }
