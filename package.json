@@ -1,6 +1,6 @@
 {
   "name": "visbol",
-  "version": "1.4.18",
+  "version": "1.4.19",
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
