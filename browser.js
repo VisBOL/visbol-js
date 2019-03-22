@@ -229,14 +229,14 @@ var editors = [
 
             var interactions = [];
 
-            sbol.componentDefinitions.forEach(function(componentDefinition) { 
-                 
+            sbol.componentDefinitions.forEach(function(componentDefinition) {
+
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             })
 
            //processing module definition
            sbol.moduleDefinitions.forEach(function(moduleDefinition) {
-           
+
                console.log(moduleDefinition)
                currentInteractions = getInteractionList(moduleDefinition);
                for (let i in currentInteractions) {
@@ -371,3 +371,4 @@ var splitter = $("#split").splitter({
     outline: true,
     resizeTo: window
 });
+  
