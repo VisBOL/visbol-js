@@ -37,7 +37,8 @@ Install dependencies
 `$ npm install`     
 
 Create bundle.js     
-`$ browserify -o bundle.js browser.js`    
+`$ browserify -o bundle.js browser.js`
+`$ browserify index.js -t babelify -o bundle.js`  
 
 Make sure you have [visbol-site](https://github.com/VisBOL/visbol-site) cloned, then copy bundle.js to the the visbol-site     directory and open up index.html in a browser
 
