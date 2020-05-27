@@ -1,0 +1,25 @@
+.navigator {
+    height: 50px;
+    background-color: rgb(212, 233, 252);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(77, 77, 77);
+}
+
+.navigator-title {
+    margin: 0;
+    padding-top: 12px;
+    padding-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+    color: rgb(54, 54, 54);
+}
+
+.size-adjustment {
+    float: right;
+    margin: 0 10px 0 0;
+}
+
+.instruction {
+    margin: 10px 0 3px 3px;
+    font-size: 14px;
+}
