@@ -30,7 +30,7 @@
     "@babel/preset-react": "^7.9.4"
   },
   "scripts": {
-    "test": "node test.js"
+    "build": "browserify index.js -t babelify -o bundle.js"
   },
   "repository": {
     "type": "git",
