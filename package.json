@@ -14,6 +14,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^3.1.2",
     "babelify": "^10.0.0",
+    "browserify": "^16.5.1",
     "rdf-ext": "^1.1.2",
     "rdf-graph-abstract": "^0.3.0",
     "rdf-parser-rdfxml": "^0.3.0-rc1",
