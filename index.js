@@ -724,7 +724,6 @@ function createDisplay(source) {
                for (let i in currentInteractions) {
         
                   interactions.push(currentInteractions[i]);
-                  console.log(currentInteractions[i]);
         
                }
         
