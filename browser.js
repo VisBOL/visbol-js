@@ -737,8 +737,6 @@ function createDisplay(source) {
                interactions,
            }
 
-           console.log(displayList);
-
            const display = prepareDisplay(displayList);
            renderDisplay(display);
         }
