@@ -1,3 +1,13 @@
+.visbol-container {
+    border: 1px solid black;
+}
+
+.visbol-viewport {
+    height: 500px;
+    width: 100%;
+    overflow: scroll;
+}
+
 .navigator {
     height: 50px;
     background-color: rgb(212, 233, 252);
