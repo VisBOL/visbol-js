@@ -21,7 +21,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-parametric-svg": "^0.1.6",
-    "react-svg-tooltip": "0.0.11",
     "sboljs": "^2.1.9",
     "sbolmeta": "^0.1.10",
     "sha1": "^1.1.1",
