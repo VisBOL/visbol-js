@@ -3,677 +3,699 @@ const SBOLDocument = require('sboljs');
 const getDisplayList = require('./lib/gatherInfo/originalVisbol/getDisplayList').getDisplayList;
 const getInteractionList = require('./lib/gatherInfo/originalVisbol/getInteractionList');
 
-const mydocument = `<?xml version="1.0" ?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/" xmlns:SBOLCanvas="https://sbolcanvas.org/">
-  <sbol:ModuleDefinition rdf:about="https://sbolcanvas.org/t">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/t"/>
-    <sbol:displayId>t</sbol:displayId>
+const mydocument = `<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sbh="http://wiki.synbiohub.org/wiki/Terms/synbiohub#" xmlns:sbol="http://sbols.org/v2#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:om="http://www.ontology-of-units-of-measure.org/resource/om-2/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sbol:ModuleDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation"/>
+    <sbol:displayId>QacR_protein_degradation</sbol:displayId>
+    <sbol:version>1</sbol:version>
     <sbol:functionalComponent>
-      <sbol:FunctionalComponent rdf:about="https://sbolcanvas.org/t/cd2">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/t/cd2"/>
-        <sbol:displayId>cd2</sbol:displayId>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/cd2"/>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_protein"/>
+        <sbol:displayId>QacR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_degradation_interaction/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_degradation_interaction"/>
+        <sbol:displayId>QacR_degradation_interaction</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000179"/>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_degradation_interaction/QacR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_degradation_interaction/QacR_protein"/>
+            <sbol:displayId>QacR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000010"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_protein/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+      </sbol:Interaction>
+    </sbol:interaction>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production"/>
+    <sbol:displayId>QacR_protein_production</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR"/>
+        <sbol:displayId>QacR</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR/1"/>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
         <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
       </sbol:FunctionalComponent>
     </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein"/>
+        <sbol:displayId>QacR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction"/>
+        <sbol:displayId>QacR_protein_interaction</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000589"/>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction/QacR/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction/QacR"/>
+            <sbol:displayId>QacR</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000645"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction/QacR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein_interaction/QacR_protein"/>
+            <sbol:displayId>QacR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000011"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+      </sbol:Interaction>
+    </sbol:interaction>
   </sbol:ModuleDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id10">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id10"/>
-    <sbol:displayId>id10</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="17" parent="https://sbolcanvas.org/id10" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="18" parent="17" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001263"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id20">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id20"/>
-    <sbol:displayId>id20</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="32" parent="https://sbolcanvas.org/id20" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="33" parent="32" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001976"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id3">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id3"/>
-    <sbol:displayId>id3</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="8" parent="https://sbolcanvas.org/id3" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="9" parent="8" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id22">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id22"/>
-    <sbol:displayId>id22</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="35" parent="https://sbolcanvas.org/id22" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="36" parent="35" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001953"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id5">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id5"/>
-    <sbol:displayId>id5</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="11" parent="https://sbolcanvas.org/id5" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="12" parent="11" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
+  <sbol:ModuleDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation"/>
+    <sbol:displayId>AmtR_protein_degradation</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_protein"/>
+        <sbol:displayId>AmtR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_degradation_interaction/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_degradation_interaction"/>
+        <sbol:displayId>AmtR_degradation_interaction</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000179"/>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_degradation_interaction/AmtR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_degradation_interaction/AmtR_protein"/>
+            <sbol:displayId>AmtR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000010"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_protein/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+      </sbol:Interaction>
+    </sbol:interaction>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="https://www.async.ece.utah.edu/Ben_module/1">
+    <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module"/>
+    <sbol:displayId>Ben_module</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://www.async.ece.utah.edu/Ben_module/QacR/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR"/>
+        <sbol:displayId>QacR</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_fc/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_fc"/>
+        <sbol:displayId>Ben_fc</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://www.async.ece.utah.edu/Ben/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_fc/QacR_mapsTo/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_fc/QacR_mapsTo"/>
+            <sbol:displayId>QacR_mapsTo</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#useLocal"/>
+            <sbol:remote rdf:resource="https://www.async.ece.utah.edu/Ben/CDS_Component/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_fc/pAmtR_mapsTo/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_fc/pAmtR_mapsTo"/>
+            <sbol:displayId>pAmtR_mapsTo</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#useLocal"/>
+            <sbol:remote rdf:resource="https://www.async.ece.utah.edu/Ben/Pro_Component/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/pAmtR/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://www.async.ece.utah.edu/Ben_module/QacR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR_protein"/>
+        <sbol:displayId>QacR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://www.async.ece.utah.edu/Ben_module/pAmtR/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/pAmtR"/>
+        <sbol:displayId>pAmtR</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://www.async.ece.utah.edu/Ben_module/AmtR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/AmtR_protein"/>
+        <sbol:displayId>AmtR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:model rdf:resource="https://www.async.ece.utah.edu/Ben_module_model/1"/>
+    <sbol:module>
+      <sbol:Module rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_degradation_sub/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_degradation_sub"/>
+        <sbol:displayId>Ben_module_AmtR_protein_degradation_sub</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/1"/>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_degradation_sub/Ben_module_AmtR_protein_degradation_sub_AmtR_protein_AmtR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_degradation_sub/Ben_module_AmtR_protein_degradation_sub_AmtR_protein_AmtR_protein"/>
+            <sbol:displayId>Ben_module_AmtR_protein_degradation_sub_AmtR_protein_AmtR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_degradation/AmtR_protein/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/AmtR_protein/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:module>
+      <sbol:Module rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub"/>
+        <sbol:displayId>Ben_module_AmtR_protein_pAmtR_repression_sub</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/1"/>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub/Ben_module_AmtR_protein_pAmtR_repression_sub_AmtR_protein_AmtR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub/Ben_module_AmtR_protein_pAmtR_repression_sub_AmtR_protein_AmtR_protein"/>
+            <sbol:displayId>Ben_module_AmtR_protein_pAmtR_repression_sub_AmtR_protein_AmtR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/AmtR_protein/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub/Ben_module_AmtR_protein_pAmtR_repression_sub_pAmtR_pAmtR/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_AmtR_protein_pAmtR_repression_sub/Ben_module_AmtR_protein_pAmtR_repression_sub_pAmtR_pAmtR"/>
+            <sbol:displayId>Ben_module_AmtR_protein_pAmtR_repression_sub_pAmtR_pAmtR</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/pAmtR/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/pAmtR/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:module>
+      <sbol:Module rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_degradation_sub/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_degradation_sub"/>
+        <sbol:displayId>Ben_module_QacR_protein_degradation_sub</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/1"/>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_degradation_sub/Ben_module_QacR_protein_degradation_sub_QacR_protein_QacR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_degradation_sub/Ben_module_QacR_protein_degradation_sub_QacR_protein_QacR_protein"/>
+            <sbol:displayId>Ben_module_QacR_protein_degradation_sub_QacR_protein_QacR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_degradation/QacR_protein/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR_protein/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+      </sbol:Module>
+    </sbol:module>
+    <sbol:module>
+      <sbol:Module rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub"/>
+        <sbol:displayId>Ben_module_QacR_protein_production_sub</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/1"/>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub/Ben_module_QacR_protein_production_sub_QacR_protein_QacR_protein/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub/Ben_module_QacR_protein_production_sub_QacR_protein_QacR_protein"/>
+            <sbol:displayId>Ben_module_QacR_protein_production_sub_QacR_protein_QacR_protein</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR_protein/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR_protein/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+        <sbol:mapsTo>
+          <sbol:MapsTo rdf:about="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub/Ben_module_QacR_protein_production_sub_QacR_QacR/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module/Ben_module_QacR_protein_production_sub/Ben_module_QacR_protein_production_sub_QacR_QacR"/>
+            <sbol:displayId>Ben_module_QacR_protein_production_sub_QacR_QacR</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:refinement rdf:resource="http://sbols.org/v2#verifyIdentical"/>
+            <sbol:remote rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein_production/QacR/1"/>
+            <sbol:local rdf:resource="https://www.async.ece.utah.edu/Ben_module/QacR/1"/>
+          </sbol:MapsTo>
+        </sbol:mapsTo>
+      </sbol:Module>
+    </sbol:module>
+  </sbol:ModuleDefinition>
+  <sbol:ModuleDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression"/>
+    <sbol:displayId>AmtR_protein_pAmtR_repression</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein"/>
+        <sbol:displayId>AmtR_protein</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#in"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:functionalComponent>
+      <sbol:FunctionalComponent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/pAmtR/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/pAmtR"/>
+        <sbol:displayId>pAmtR</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR/1"/>
+        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
+        <sbol:direction rdf:resource="http://sbols.org/v2#inout"/>
+      </sbol:FunctionalComponent>
+    </sbol:functionalComponent>
+    <sbol:interaction>
+      <sbol:Interaction rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression"/>
+        <sbol:displayId>AmtR_protein_pAmtR_repression</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbol:type rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000169"/>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression/pAmtR_promoter_participation/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression/pAmtR_promoter_participation"/>
+            <sbol:displayId>pAmtR_promoter_participation</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000642"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/pAmtR/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+        <sbol:participation>
+          <sbol:Participation rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression/AmtR_protein_participation/1">
+            <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein_pAmtR_repression/AmtR_protein_participation"/>
+            <sbol:displayId>AmtR_protein_participation</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:role rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000020"/>
+            <sbol:participant rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein_pAmtR_repression/AmtR_protein/1"/>
+          </sbol:Participation>
+        </sbol:participation>
+      </sbol:Interaction>
+    </sbol:interaction>
+  </sbol:ModuleDefinition>
+  <sbol:Model rdf:about="https://www.async.ece.utah.edu/Ben_module_model/1">
+    <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_module_model"/>
+    <sbol:displayId>Ben_module_model</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <sbol:source rdf:resource="file:Ben_module.xml"/>
+    <sbol:language rdf:resource="http://identifiers.org/edam/format_2585"/>
+    <sbol:framework rdf:resource="http://identifiers.org/biomodels.sbo/SBO:0000063"/>
+  </sbol:Model>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR"/>
+    <sbol:displayId>QacR</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>QacR</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR/1"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000316"/>
+    <sbol:sequence rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_sequence/1"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id12">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id12"/>
-    <sbol:displayId>id12</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="20" parent="https://sbolcanvas.org/id12" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="21" parent="20" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator"/>
+    <sbol:displayId>L3S2P21_terminator</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>L3S2P21_terminator</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator/1"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000296"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
+    <sbol:sequence rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator_sequence/1"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id53">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id53"/>
-    <sbol:displayId>id53</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="68" parent="https://sbolcanvas.org/id53" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="69" parent="68" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001933"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id18">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id18"/>
-    <sbol:displayId>id18</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="29" parent="https://sbolcanvas.org/id18" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="30" parent="29" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001975"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id28">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id28"/>
-    <sbol:displayId>id28</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="44" parent="https://sbolcanvas.org/id28" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="45" parent="44" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001691"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id1">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id1"/>
-    <sbol:displayId>id1</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="5" parent="https://sbolcanvas.org/id1" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="6" parent="5" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/cd2">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2"/>
-    <sbol:displayId>cd2</sbol:displayId>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="2" parent="t" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="800.0" x="140.0" y="360.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="3" parent="2" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="800.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
+  <sbol:ComponentDefinition rdf:about="https://www.async.ece.utah.edu/Ben/1">
+    <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben"/>
+    <sbol:displayId>Ben</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://www.async.ece.utah.edu/Ben_SBOLDesignerActivity/1"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
     <sbol:role rdf:resource="http://identifiers.org/so/SO:0000804"/>
     <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id28_43">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id28_43"/>
-        <sbol:displayId>id28_43</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="43" parent="2" style="sequenceFeatureGlyphBRS (Blunt Restriction Site)" value="https://sbolcanvas.org/id28" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="650.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
+      <sbol:Component rdf:about="https://www.async.ece.utah.edu/Ben/Ter_Component/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ter_Component"/>
+        <sbol:displayId>Ter_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id28"/>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id7_13">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id7_13"/>
-        <sbol:displayId>id7_13</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="13" parent="2" style="sequenceFeatureGlyphTer (Terminator)" value="https://sbolcanvas.org/id7" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="150.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
+      <sbol:Component rdf:about="https://www.async.ece.utah.edu/Ben/CDS_Component/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/CDS_Component"/>
+        <sbol:displayId>CDS_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id7"/>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id18_28">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id18_28"/>
-        <sbol:displayId>id18_28</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="28" parent="2" style="sequenceFeatureGlyphSRS5 (5' Sticky Restriction Site)" value="https://sbolcanvas.org/id18" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="400.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
+      <sbol:Component rdf:about="https://www.async.ece.utah.edu/Ben/Pro_Component/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Pro_Component"/>
+        <sbol:displayId>Pro_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id18"/>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id12_19">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id12_19"/>
-        <sbol:displayId>id12_19</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="19" parent="2" style="sequenceFeatureGlyphOri (Origin of Replication)" value="https://sbolcanvas.org/id12" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="250.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
+      <sbol:Component rdf:about="https://www.async.ece.utah.edu/Ben/RBS_Component/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/RBS_Component"/>
+        <sbol:displayId>RBS_Component</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id12"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id10_16">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id10_16"/>
-        <sbol:displayId>id10_16</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="16" parent="2" style="sequenceFeatureGlyphgRNA (Non-Coding RNA gene)" value="https://sbolcanvas.org/id10" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="200.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id10"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id14_22">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id14_22"/>
-        <sbol:displayId>id14_22</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="22" parent="2" style="sequenceFeatureGlyphOriT (Origin of Transfer)" value="https://sbolcanvas.org/id14" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="300.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id14"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id16_25">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id16_25"/>
-        <sbol:displayId>id16_25</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="25" parent="2" style="sequenceFeatureGlyphPBS (Primer Binding Site)" value="https://sbolcanvas.org/id16" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="350.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id16"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id5_10">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id5_10"/>
-        <sbol:displayId>id5_10</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="10" parent="2" style="sequenceFeatureGlyphCDS (Coding Sequence)" value="https://sbolcanvas.org/id5" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="100.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id5"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id24_37">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id24_37"/>
-        <sbol:displayId>id24_37</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="37" parent="2" style="sequenceFeatureGlyphBind (Binding Site)" value="https://sbolcanvas.org/id24" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="550.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id24"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id22_34">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id22_34"/>
-        <sbol:displayId>id22_34</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="34" parent="2" style="sequenceFeatureGlyphScar (Assembly Scar)" value="https://sbolcanvas.org/id22" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="500.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id22"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id55_70">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id55_70"/>
-        <sbol:displayId>id55_70</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="70" parent="2" style="sequenceFeatureGlyphOH5 (5' Overhang)" value="https://sbolcanvas.org/id55" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="750.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id55"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id53_67">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id53_67"/>
-        <sbol:displayId>id53_67</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="67" parent="2" style="sequenceFeatureGlyphOH3 (3' Overhang)" value="https://sbolcanvas.org/id53" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="700.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id53"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id20_31">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id20_31"/>
-        <sbol:displayId>id20_31</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="31" parent="2" style="sequenceFeatureGlyphSRS3 (3' Sticky Restriction Site)" value="https://sbolcanvas.org/id20" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="450.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id20"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id26_40">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id26_40"/>
-        <sbol:displayId>id26_40</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="40" parent="2" style="sequenceFeatureGlyphIns (Insulator)" value="https://sbolcanvas.org/id26" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="600.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id26"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id1_4">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id1_4"/>
-        <sbol:displayId>id1_4</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="4" parent="2" style="sequenceFeatureGlyphPro (Promoter)" value="https://sbolcanvas.org/id1" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id1"/>
-      </sbol:Component>
-    </sbol:component>
-    <sbol:component>
-      <sbol:Component rdf:about="https://sbolcanvas.org/cd2/id3_7">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/id3_7"/>
-        <sbol:displayId>id3_7</sbol:displayId>
-        <SBOLCanvas:glyphCell>&lt;mxCell id="7" parent="2" style="sequenceFeatureGlyphRBS (Ribosome Binding Site)" value="https://sbolcanvas.org/id3" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0" x="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:glyphCell>
-        <sbol:access rdf:resource="http://sbols.org/v2#public"/>
-        <sbol:definition rdf:resource="https://sbolcanvas.org/id3"/>
+        <sbol:definition rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3/1"/>
       </sbol:Component>
     </sbol:component>
     <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation11">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation11"/>
-        <sbol:displayId>cd2Annotation11</sbol:displayId>
+      <sbol:SequenceAnnotation rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation2/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation2"/>
+        <sbol:displayId>Ben_SequenceAnnotation2</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation11/location11">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation11/location11"/>
-            <sbol:displayId>location11</sbol:displayId>
+          <sbol:Range rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation2/Ben_SequenceAnnotation2_Range/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation2/Ben_SequenceAnnotation2_Range"/>
+            <sbol:displayId>Ben_SequenceAnnotation2_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>102</sbol:start>
+            <sbol:end>668</sbol:end>
             <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
+          </sbol:Range>
         </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id24_37"/>
+        <sbol:component rdf:resource="https://www.async.ece.utah.edu/Ben/CDS_Component/1"/>
       </sbol:SequenceAnnotation>
     </sbol:sequenceAnnotation>
     <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation13">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation13"/>
-        <sbol:displayId>cd2Annotation13</sbol:displayId>
+      <sbol:SequenceAnnotation rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation3/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation3"/>
+        <sbol:displayId>Ben_SequenceAnnotation3</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation13/location13">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation13/location13"/>
-            <sbol:displayId>location13</sbol:displayId>
+          <sbol:Range rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation3/Ben_SequenceAnnotation3_Range/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation3/Ben_SequenceAnnotation3_Range"/>
+            <sbol:displayId>Ben_SequenceAnnotation3_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>669</sbol:start>
+            <sbol:end>729</sbol:end>
             <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
+          </sbol:Range>
         </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id28_43"/>
+        <sbol:component rdf:resource="https://www.async.ece.utah.edu/Ben/Ter_Component/1"/>
       </sbol:SequenceAnnotation>
     </sbol:sequenceAnnotation>
     <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation10">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation10"/>
-        <sbol:displayId>cd2Annotation10</sbol:displayId>
+      <sbol:SequenceAnnotation rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation1/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation1"/>
+        <sbol:displayId>Ben_SequenceAnnotation1</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation10/location10">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation10/location10"/>
-            <sbol:displayId>location10</sbol:displayId>
+          <sbol:Range rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation1/Ben_SequenceAnnotation1_Range/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation1/Ben_SequenceAnnotation1_Range"/>
+            <sbol:displayId>Ben_SequenceAnnotation1_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>64</sbol:start>
+            <sbol:end>101</sbol:end>
             <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
+          </sbol:Range>
         </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id22_34"/>
+        <sbol:component rdf:resource="https://www.async.ece.utah.edu/Ben/RBS_Component/1"/>
       </sbol:SequenceAnnotation>
     </sbol:sequenceAnnotation>
     <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation14">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation14"/>
-        <sbol:displayId>cd2Annotation14</sbol:displayId>
+      <sbol:SequenceAnnotation rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation"/>
+        <sbol:displayId>Ben_SequenceAnnotation</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation14/location14">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation14/location14"/>
-            <sbol:displayId>location14</sbol:displayId>
+          <sbol:Range rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation/Ben_SequenceAnnotation_Range/1">
+            <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceAnnotation/Ben_SequenceAnnotation_Range"/>
+            <sbol:displayId>Ben_SequenceAnnotation_Range</sbol:displayId>
+            <sbol:version>1</sbol:version>
+            <sbol:start>1</sbol:start>
+            <sbol:end>63</sbol:end>
             <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
+          </sbol:Range>
         </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id53_67"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation0">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation0"/>
-        <sbol:displayId>cd2Annotation0</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation0/location0">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation0/location0"/>
-            <sbol:displayId>location0</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id1_4"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation15">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation15"/>
-        <sbol:displayId>cd2Annotation15</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation15/location15">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation15/location15"/>
-            <sbol:displayId>location15</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id55_70"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation6">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation6"/>
-        <sbol:displayId>cd2Annotation6</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation6/location6">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation6/location6"/>
-            <sbol:displayId>location6</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id14_22"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation9">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation9"/>
-        <sbol:displayId>cd2Annotation9</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation9/location9">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation9/location9"/>
-            <sbol:displayId>location9</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id20_31"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation5">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation5"/>
-        <sbol:displayId>cd2Annotation5</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation5/location5">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation5/location5"/>
-            <sbol:displayId>location5</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id12_19"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation7">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation7"/>
-        <sbol:displayId>cd2Annotation7</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation7/location7">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation7/location7"/>
-            <sbol:displayId>location7</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id16_25"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation12">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation12"/>
-        <sbol:displayId>cd2Annotation12</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation12/location12">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation12/location12"/>
-            <sbol:displayId>location12</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id26_40"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation4">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation4"/>
-        <sbol:displayId>cd2Annotation4</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation4/location4">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation4/location4"/>
-            <sbol:displayId>location4</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id10_16"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation3">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation3"/>
-        <sbol:displayId>cd2Annotation3</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation3/location3">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation3/location3"/>
-            <sbol:displayId>location3</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id7_13"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation8">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation8"/>
-        <sbol:displayId>cd2Annotation8</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation8/location8">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation8/location8"/>
-            <sbol:displayId>location8</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id18_28"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation1">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation1"/>
-        <sbol:displayId>cd2Annotation1</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation1/location1">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation1/location1"/>
-            <sbol:displayId>location1</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id3_7"/>
-      </sbol:SequenceAnnotation>
-    </sbol:sequenceAnnotation>
-    <sbol:sequenceAnnotation>
-      <sbol:SequenceAnnotation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation2">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation2"/>
-        <sbol:displayId>cd2Annotation2</sbol:displayId>
-        <sbol:location>
-          <sbol:GenericLocation rdf:about="https://sbolcanvas.org/cd2/cd2Annotation2/location2">
-            <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Annotation2/location2"/>
-            <sbol:displayId>location2</sbol:displayId>
-            <sbol:orientation rdf:resource="http://sbols.org/v2#inline"/>
-          </sbol:GenericLocation>
-        </sbol:location>
-        <sbol:component rdf:resource="https://sbolcanvas.org/cd2/id5_10"/>
+        <sbol:component rdf:resource="https://www.async.ece.utah.edu/Ben/Pro_Component/1"/>
       </sbol:SequenceAnnotation>
     </sbol:sequenceAnnotation>
     <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint1">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint1"/>
-        <sbol:displayId>cd2Constraint1</sbol:displayId>
+      <sbol:SequenceConstraint rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint1/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint1"/>
+        <sbol:displayId>Ben_SequenceConstraint1</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id1_4"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id3_7"/>
+        <sbol:subject rdf:resource="https://www.async.ece.utah.edu/Ben/RBS_Component/1"/>
+        <sbol:object rdf:resource="https://www.async.ece.utah.edu/Ben/CDS_Component/1"/>
       </sbol:SequenceConstraint>
     </sbol:sequenceConstraint>
     <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint6">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint6"/>
-        <sbol:displayId>cd2Constraint6</sbol:displayId>
+      <sbol:SequenceConstraint rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint2/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint2"/>
+        <sbol:displayId>Ben_SequenceConstraint2</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id12_19"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id14_22"/>
+        <sbol:subject rdf:resource="https://www.async.ece.utah.edu/Ben/CDS_Component/1"/>
+        <sbol:object rdf:resource="https://www.async.ece.utah.edu/Ben/Ter_Component/1"/>
       </sbol:SequenceConstraint>
     </sbol:sequenceConstraint>
     <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint14">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint14"/>
-        <sbol:displayId>cd2Constraint14</sbol:displayId>
+      <sbol:SequenceConstraint rdf:about="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben/Ben_SequenceConstraint"/>
+        <sbol:displayId>Ben_SequenceConstraint</sbol:displayId>
+        <sbol:version>1</sbol:version>
         <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id28_43"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id53_67"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint13">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint13"/>
-        <sbol:displayId>cd2Constraint13</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id26_40"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id28_43"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint12">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint12"/>
-        <sbol:displayId>cd2Constraint12</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id24_37"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id26_40"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint2">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint2"/>
-        <sbol:displayId>cd2Constraint2</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id3_7"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id5_10"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint3">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint3"/>
-        <sbol:displayId>cd2Constraint3</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id5_10"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id7_13"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint4">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint4"/>
-        <sbol:displayId>cd2Constraint4</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id7_13"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id10_16"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint11">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint11"/>
-        <sbol:displayId>cd2Constraint11</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id22_34"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id24_37"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint7">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint7"/>
-        <sbol:displayId>cd2Constraint7</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id14_22"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id16_25"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint10">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint10"/>
-        <sbol:displayId>cd2Constraint10</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id20_31"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id22_34"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint8">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint8"/>
-        <sbol:displayId>cd2Constraint8</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id16_25"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id18_28"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint15">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint15"/>
-        <sbol:displayId>cd2Constraint15</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id53_67"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id55_70"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint9">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint9"/>
-        <sbol:displayId>cd2Constraint9</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id18_28"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id20_31"/>
-      </sbol:SequenceConstraint>
-    </sbol:sequenceConstraint>
-    <sbol:sequenceConstraint>
-      <sbol:SequenceConstraint rdf:about="https://sbolcanvas.org/cd2/cd2Constraint5">
-        <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/cd2/cd2Constraint5"/>
-        <sbol:displayId>cd2Constraint5</sbol:displayId>
-        <sbol:restriction rdf:resource="http://sbols.org/v2#precedes"/>
-        <sbol:subject rdf:resource="https://sbolcanvas.org/cd2/id10_16"/>
-        <sbol:object rdf:resource="https://sbolcanvas.org/cd2/id12_19"/>
+        <sbol:subject rdf:resource="https://www.async.ece.utah.edu/Ben/Pro_Component/1"/>
+        <sbol:object rdf:resource="https://www.async.ece.utah.edu/Ben/RBS_Component/1"/>
       </sbol:SequenceConstraint>
     </sbol:sequenceConstraint>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id26">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id26"/>
-    <sbol:displayId>id26</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="41" parent="https://sbolcanvas.org/id26" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="42" parent="41" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3"/>
+    <sbol:displayId>S3</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>S3</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3/1"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000627"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000139"/>
+    <sbol:sequence rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3_sequence/1"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id16">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id16"/>
-    <sbol:displayId>id16</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="26" parent="https://sbolcanvas.org/id16" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="27" parent="26" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/AmtR_protein"/>
+    <sbol:displayId>AmtR_protein</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>AmtR_protein</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_protein"/>
+    <sbol:displayId>QacR_protein</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>QacR_protein</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#Protein"/>
+  </sbol:ComponentDefinition>
+  <sbol:ComponentDefinition rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR"/>
+    <sbol:displayId>pAmtR</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>pAmtR</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR/1"/>
     <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0005850"/>
+    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000167"/>
+    <sbol:sequence rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR_sequence/1"/>
   </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id55">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id55"/>
-    <sbol:displayId>id55</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="71" parent="https://sbolcanvas.org/id55" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="72" parent="71" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0001932"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id24">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id24"/>
-    <sbol:displayId>id24</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="38" parent="https://sbolcanvas.org/id24" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="39" parent="38" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000409"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id14">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id14"/>
-    <sbol:displayId>id14</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="23" parent="https://sbolcanvas.org/id14" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="24" parent="23" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000724"/>
-  </sbol:ComponentDefinition>
-  <sbol:ComponentDefinition rdf:about="https://sbolcanvas.org/id7">
-    <sbol:persistentIdentity rdf:resource="https://sbolcanvas.org/id7"/>
-    <sbol:displayId>id7</sbol:displayId>
-    <SBOLCanvas:textBoxes>&lt;Array/&gt;</SBOLCanvas:textBoxes>
-    <SBOLCanvas:containerCell>&lt;mxCell connectable="0" id="14" parent="https://sbolcanvas.org/id7" style="circuitContainer" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="100.0" width="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:containerCell>
-    <SBOLCanvas:backboneCell>&lt;mxCell connectable="0" id="15" parent="14" style="backbone" value="" vertex="1"&gt;&lt;mxGeometry as="geometry" height="1.0" width="50.0" y="50.0"/&gt;&lt;/mxCell&gt;</SBOLCanvas:backboneCell>
-    <sbol:type rdf:resource="http://www.biopax.org/release/biopax-level3.owl#DnaRegion"/>
-    <sbol:role rdf:resource="http://identifiers.org/so/SO:0000141"/>
-  </sbol:ComponentDefinition>
+  <sbol:Sequence rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3_sequence"/>
+    <sbol:displayId>S3_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>S3_sequence</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/S3_sequence/1"/>
+    <sbol:elements>GAGTCTATGGACTATGTTTTCACAAAGGAAGTACCAGG</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator_sequence"/>
+    <sbol:displayId>L3S2P21_terminator_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>L3S2P21_terminator_sequence</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/L3S2P21_terminator_sequence/1"/>
+    <sbol:elements>CTCGGTACCAAATTCCAGAAAAGAGGCCTCCCGAAAGGGGGGCCTTTTTTCGTTTTGGTCC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR_sequence"/>
+    <sbol:displayId>pAmtR_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>pAmtR_sequence</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/pAmtR_sequence/1"/>
+    <sbol:elements>CTTGTCCAACCAAATGATTCGTTACCAATTGACAGTTTCTATCGATCTATAGATAATGCTAGC</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <sbol:Sequence rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_sequence/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_sequence"/>
+    <sbol:displayId>QacR_sequence</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <prov:wasGeneratedBy rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <dcterms:title>QacR_sequence</dcterms:title>
+    <dcterms:created>2019-11-14T20:50:42.872Z</dcterms:created>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/QacR_sequence/1"/>
+    <sbol:elements>ATGAACCTGAAAGATAAAATTCTGGGCGTTGCCAAAGAACTGTTTATCAAAAATGGCTATAACGCAACCACCACCGGTGAAATTGTTAAACTGAGCGAAAGCAGCAAAGGCAATCTGTATTATCACTTTAAAACCAAAGAGAACCTGTTTCTGGAAATCCTGAACATCGAAGAAAGCAAATGGCAAGAGCAGTGGAAAAAAGAACAAATCAAATGCAAAACCAACCGCGAGAAATTCTATCTGTATAATGAACTGAGCCTGACCACCGAATATTACTATCCGCTGCAGAATGCCATCATCGAGTTTTATACCGAGTACTATAAAACCAACAGCATCAACGAGAAAATGAACAAACTGGAAAACAAATACATCGATGCCTACCACGTGATCTTTAAAGAAGGTAATCTGAACGGCGAATGGTGCATTAATGATGTTAATGCCGTGAGCAAAATTGCAGCAAATGCCGTTAATGGCATTGTTACCTTTACCCATGAGCAGAATATCAACGAACGCATTAAACTGATGAACAAATTCAGCCAGATCTTTCTGAATGGCCTGAGCAAATAA</sbol:elements>
+    <sbol:encoding rdf:resource="http://www.chem.qmul.ac.uk/iubmb/misc/naseq.html"/>
+  </sbol:Sequence>
+  <prov:Activity rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity"/>
+    <sbol:displayId>CelloUCF2sbol_Activity</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>Cello UCF to SBOL conversion</dcterms:title>
+    <dcterms:description>Conversion of the Cello UCF parts and metadata to SBOL 2 documents.</dcterms:description>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+    <prov:endedAtTime>2019-11-14T13:50:42.893-07:00</prov:endedAtTime>
+    <prov:qualifiedAssociation>
+      <prov:Association rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/association/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/association"/>
+        <sbol:displayId>association</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+        <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+        <prov:agent rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2SBOL/1"/>
+      </prov:Association>
+    </prov:qualifiedAssociation>
+    <prov:qualifiedUsage>
+      <prov:Usage rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/UCF_file/1">
+        <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/UCF_file"/>
+        <sbol:displayId>UCF_file</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+        <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2sbol_Activity/1"/>
+        <prov:entity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/attachment_2a6ef492b29345cb92c0b0e738f30881/1"/>
+      </prov:Usage>
+    </prov:qualifiedUsage>
+  </prov:Activity>
+  <prov:Activity rdf:about="https://www.async.ece.utah.edu/Ben_SBOLDesignerActivity/1">
+    <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_SBOLDesignerActivity"/>
+    <sbol:displayId>Ben_SBOLDesignerActivity</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dc:creator>Chris Myers</dc:creator>
+    <prov:endedAtTime>2020-03-02T15:07:28.144-07:00</prov:endedAtTime>
+    <prov:qualifiedAssociation>
+      <prov:Association rdf:about="https://www.async.ece.utah.edu/Ben_SBOLDesignerActivity/Association/1">
+        <sbol:persistentIdentity rdf:resource="https://www.async.ece.utah.edu/Ben_SBOLDesignerActivity/Association"/>
+        <sbol:displayId>Association</sbol:displayId>
+        <sbol:version>1</sbol:version>
+        <prov:hadRole rdf:resource="http://sbols.org/v2#sequenceEditor"/>
+        <prov:agent rdf:resource="https://synbiohub.org/public/SBOL_Software/SBOLDesigner/3.1"/>
+      </prov:Association>
+    </prov:qualifiedAssociation>
+  </prov:Activity>
+  <prov:Agent rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2SBOL/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2SBOL"/>
+    <sbol:displayId>CelloUCF2SBOL</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>Cello UCF to SBOL</dcterms:title>
+    <dcterms:description>A script to convert Cello UCF parts and metadata to SBOL 2 documents.</dcterms:description>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <dc:creator>Prashant Vaidyanathan</dc:creator>
+    <dc:creator>Chris J. Myers</dc:creator>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/CelloUCF2SBOL/1"/>
+    <dc:source rdf:resource="https://github.com/MyersResearchGroup/UCF2SBOL"/>
+  </prov:Agent>
+  <prov:Agent rdf:about="https://synbiohub.org/public/SBOL_Software/SBOLDesigner/3.1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.org/public/SBOL_Software/SBOLDesigner"/>
+    <sbol:displayId>SBOLDesigner</sbol:displayId>
+    <sbol:version>3.1</sbol:version>
+    <dcterms:title>SBOLDesigner CAD Tool</dcterms:title>
+    <dcterms:description>SBOLDesigner is a simple, biologist-friendly CAD software tool for creating and manipulating the sequences of genetic constructs using the Synthetic Biology Open Language (SBOL) 2 data model. Throughout the design process, SBOL Visual symbols, a system of schematic glyphs, provide standardized visualizations of individual parts. SBOLDesigner completes a workflow for users of genetic design automation tools. It combines a simple user interface with the power of the SBOL standard and serves as a launchpad for more detailed designs involving simulations and experiments. Some new features in SBOLDesigner are the ability to add variant collections to combinatorial derivations, enumerating those collections, and the ability to view sequence features hierarchically. There are also some small changes to the way that preferences work in regards to saving a design with incomplete sequences.</dcterms:description>
+    <dc:creator>Samuel Bridge</dc:creator>
+    <dc:creator>Michael Zhang</dc:creator>
+    <dc:creator>Chris Myers</dc:creator>
+    <dc:creator>Michal Galdzicki</dc:creator>
+    <dc:creator>Bryan Bartley</dc:creator>
+    <dc:creator>Sean Sleight</dc:creator>
+    <dc:creator>Evren Sirin</dc:creator>
+    <dc:creator>John Gennari</dc:creator>
+  </prov:Agent>
+  <sbol:Attachment rdf:about="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/attachment_2a6ef492b29345cb92c0b0e738f30881/1">
+    <sbol:persistentIdentity rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/attachment_2a6ef492b29345cb92c0b0e738f30881"/>
+    <sbol:displayId>attachment_2a6ef492b29345cb92c0b0e738f30881</sbol:displayId>
+    <sbol:version>1</sbol:version>
+    <dcterms:title>Eco1C1G1T1-tandem-synbiohub.UCF.json</dcterms:title>
+    <sbh:ownedBy rdf:resource="https://synbiohub.programmingbiology.org/user/myers"/>
+    <sbh:topLevel rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/attachment_2a6ef492b29345cb92c0b0e738f30881/1"/>
+    <sbol:source rdf:resource="https://synbiohub.programmingbiology.org/public/Eco1C1G1T1/attachment_2a6ef492b29345cb92c0b0e738f30881/1/download"/>
+    <sbol:format rdf:resource="http://purl.org/NET/mediatypes/text/plain"/>
+    <sbol:size>3576113</sbol:size>
+    <sbol:hash>b9ff9e321edf990df5174a46bdd96907e1d3ed6d</sbol:hash>
+  </sbol:Attachment>
 </rdf:RDF>
+
 `
 
 createDisplay(mydocument);
