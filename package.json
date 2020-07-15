@@ -1,6 +1,6 @@
 {
   "name": "visbol",
-  "version": "1.4.27",
+  "version": "2.0.0",
   "babel": {
     "presets": [
       "@babel/preset-env",
