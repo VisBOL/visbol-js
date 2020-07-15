@@ -10,7 +10,5 @@ function formatSVG(string) {
 }
 
 formatSVG(`
-fill:rgb(255,255,255);fill-rule:nonzero;stroke:none"
-
 fill:none;stroke:black;stroke-width:1pt;stroke-linejoin:round;stroke-linecap:round"
 `);
