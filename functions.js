@@ -1,3 +1,12 @@
+const prepareDisplay = require('./lib/design/prepareDisplay');
+const SBOLDocument = require('sboljs');
+const getDisplayList = require('./lib/gatherInfo/originalVisbol/getDisplayList').getDisplayList;
+const getInteractionList = require('./lib/gatherInfo/originalVisbol/getInteractionList');
+
+/**
+ * Renders the model based on the sbol file source
+ * @param {String} source 
+ */
 function createDisplay(source) {
     SBOLDocument.loadRDF(source, function(err, sbol) {
         if (err) {
