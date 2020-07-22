@@ -1,6 +1,6 @@
 {
-  "name": "visbol",
-  "version": "2.0.0",
+  "name": "visboltest",
+  "version": "2.0.5",
   "babel": {
     "presets": [
       "@babel/preset-env",
@@ -10,11 +10,6 @@
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.1",
     "rdf-ext": "^1.1.2",
     "rdf-graph-abstract": "^0.3.0",
     "rdf-parser-rdfxml": "^0.3.0-rc1",
@@ -29,11 +24,14 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4"
+    "@babel/preset-react": "^7.9.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.1"
   },
   "scripts": {
-    "build": "browserify browser.js -t babelify -o bundle.js",
-    "synbiohub-build": "browserify index.js -t babelify -o synbundle.js"
+    "build": "browserify index.js -t babelify -o bundle.js",
+    "browser-build": "browserify browserbuild.js -t babelify -o browser.js",
+    "synbiohub-build": "browserify synbiohub.js -t babelify -o synbundle.js"
   },
   "repository": {
     "type": "git",

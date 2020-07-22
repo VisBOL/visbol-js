@@ -1,9 +1,10 @@
 .DS_Store
 node_modules
 .vscode
-*~
-bundle.js
 test.js
 svgs
 glyph_definitions
 synbundle.js
+index.html
+synbiohub.js
+browser.js
