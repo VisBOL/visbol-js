@@ -46,7 +46,8 @@ function createDisplay(source) {
                interactions,
            }
 
-           const display = prepareDisplay(displayList, false);
+           console.log(displayList);
+           const display = prepareDisplay(displayList);
            display.renderReact();
         }
 
