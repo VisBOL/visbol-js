@@ -33,8 +33,8 @@
   },
   "scripts": {
     "build": "browserify index.js -t babelify -o bundle.js",
-    "browser-build": "browserify browserbuild.js -t babelify -o browser.js",
-    "synbiohub-build": "browserify synbiohub.js -t babelify -o synbundle.js"
+    "browser": "browserify browser.js -t babelify -o browserbuild.js",
+    "synbiohub": "browserify synbiohub.js -t babelify -o synbundle.js"
   },
   "repository": {
     "type": "git",
