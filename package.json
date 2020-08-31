@@ -22,7 +22,7 @@
     "sbolmeta": "^0.1.10",
     "sha1": "^1.1.1",
     "urijs": "^1.16.1",
-    "visboltest": "^2.0.7"
+    "visbol": "1.4.29"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

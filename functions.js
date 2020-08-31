@@ -1,7 +1,9 @@
-const prepareDisplay = require('./lib/design/prepareDisplay');
-const SBOLDocument = require('sboljs');
-const getDisplayList = require('./lib/gatherInfo/originalVisbol/getDisplayList').getDisplayList;
-const getInteractionList = require('./lib/gatherInfo/originalVisbol/getInteractionList');
+import prepareDisplay from './lib/design/prepareDisplay';
+import SBOLDocument from 'sboljs';
+import { getDisplayList as getDisplayListComponents } from 'visbol';
+import { getInteractionList } from 'visbol';
+
+const getDisplayList = getDisplayListComponents.getDisplayList;
 
 /**
  * Renders the model based on the sbol file source
