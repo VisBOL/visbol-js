@@ -1,5 +1,11 @@
-module.exports = {
-    prepareDisplay: require('./lib/design/prepareDisplay'),
-    getDisplayList: require('./lib/gatherInfo/originalVisbol/getDisplayList').getDisplayList,
-    renderSBOL: require('./functions').renderSBOL
+import prepareDisplay from './lib/design/prepareDisplay';
+import { getDisplayList } from 'visbol';
+import { getInteractionList } from 'visbol';
+import { renderSBOL } from './functions';
+
+export {
+    renderSBOL,
+    prepareDisplay,
+    getDisplayList,
+    getInteractionList
 }
