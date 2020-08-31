@@ -3,6 +3,7 @@ node_modules
 .vscode
 glyph_definitions
 synbiohub.js
+synbiohubbuild.js
 browserbuild.js
 index.html
 browser.js
