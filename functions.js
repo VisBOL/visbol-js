@@ -4,7 +4,7 @@ import { getDisplayList as getDisplayListComponents } from 'visbol';
 import { getInteractionList } from 'visbol';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Rendering from './lib/rendering/Rendering';
+import Rendering from './dist/rendering';
 
 const getDisplayList = getDisplayListComponents.getDisplayList;
 
