@@ -1,7 +1,7 @@
 import prepareDisplay from './lib/design/prepareDisplay';
+import { renderSBOL } from './functions';
 import { getDisplayList } from 'visbol';
 import { getInteractionList } from 'visbol';
-import { renderSBOL } from './functions';
 
 export {
     renderSBOL,
