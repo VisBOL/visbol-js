@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './lib/rendering/react/reactRender.js',
+    entry: './lib/rendering/Rendering.js',
     node: {
         fs: 'empty'
     },
