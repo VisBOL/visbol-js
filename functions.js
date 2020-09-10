@@ -2,6 +2,9 @@ import prepareDisplay from './lib/design/prepareDisplay';
 import SBOLDocument from 'sboljs';
 import { getDisplayList as getDisplayListComponents } from 'visbol';
 import { getInteractionList } from 'visbol';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Rendering from './lib/rendering/Rendering';
 
 const getDisplayList = getDisplayListComponents.getDisplayList;
 
@@ -10,7 +13,7 @@ const getDisplayList = getDisplayListComponents.getDisplayList;
  * @param {String} source 
  */
 function createDisplay(source) {
-    SBOLDocument.loadRDF(source, function(err, sbol) {
+    SBOLDocument.loadRDF(source, function (err, sbol) {
         if (err) {
             console.log('error occured: ');
             console.log(err);
@@ -20,37 +23,38 @@ function createDisplay(source) {
             var component = {
                 segments: []
             }
-        
-            sbol.componentDefinitions.forEach(function(componentDefinition) {
-        
+
+            sbol.componentDefinitions.forEach(function (componentDefinition) {
+
                 component.segments = component.segments.concat(getDisplayList(componentDefinition).components[0].segments[0])
             });
-        
-            var interactions = [];
-        
-           //processing module definition
-           sbol.moduleDefinitions.forEach(function(moduleDefinition) {
-        
-               let currentInteractions = getInteractionList(moduleDefinition);
-               for (let i in currentInteractions) {
-        
-                  interactions.push(currentInteractions[i]);
-        
-               }
-        
-           });
-        
-           const displayList = {
-               version: 1,
-               components: [
-                   component
-               ],
-               interactions,
-           }
 
-           console.log(displayList);
-           const display = prepareDisplay(displayList);
-           display.renderReact();
+            var interactions = [];
+
+            //processing module definition
+            sbol.moduleDefinitions.forEach(function (moduleDefinition) {
+
+                let currentInteractions = getInteractionList(moduleDefinition);
+                for (let i in currentInteractions) {
+
+                    interactions.push(currentInteractions[i]);
+
+                }
+
+            });
+
+            const displayList = {
+                version: 1,
+                components: [
+                    component
+                ],
+                interactions,
+            }
+
+            console.log(displayList);
+            const display = prepareDisplay(displayList);
+            const container = document.getElementById('design');
+            ReactDOM.render(<Rendering display={display} />, container);
         }
 
     })
