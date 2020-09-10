@@ -4,16 +4,10 @@
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-react-app": "^3.1.2",
-    "rdf-ext": "^1.1.2",
-    "rdf-graph-abstract": "^0.3.0",
-    "rdf-parser-rdfxml": "^0.3.0-rc1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-parametric-svg": "^0.1.7",
     "sboljs": "^2.1.9",
-    "sbolmeta": "^0.1.10",
-    "sha1": "^1.1.1",
-    "urijs": "^1.16.1",
     "visbol": "1.4.29"
   },
   "peerDependencies": {
