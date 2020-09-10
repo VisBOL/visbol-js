@@ -1,12 +1,6 @@
 {
   "name": "visbol",
   "version": "2.0.7",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
@@ -25,16 +19,20 @@
     "visbol": "1.4.29"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.5.1"
+    "browserify": "^16.5.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "scripts": {
     "build": "browserify index.js -t babelify -o bundle.js",
     "browser": "browserify browser.js -t babelify -o browserbuild.js",
-    "synbiohub": "browserify synbiohub.js -t babelify -o synbiohubbuild.js"
+    "synbiohub": "browserify synbiohub.js -t babelify -o synbiohubbuild.js",
+    "webpack": "webpack --mode production --display-modules"
   },
   "repository": {
     "type": "git",

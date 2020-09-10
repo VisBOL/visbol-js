@@ -56,6 +56,6 @@ function createDisplay(source) {
     })
 }
 
-module.exports = {
-    renderSBOL: createDisplay
+export {
+    createDisplay as renderSBOL
 }
