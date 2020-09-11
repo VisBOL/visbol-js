@@ -1,12 +1,12 @@
 {
   "name": "visbol",
-  "version": "2.0.7",
+  "version": "2.0.0",
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
     "sboljs": "^2.1.9",
     "visbol": "1.4.30",
-    "visbol-react": "^1.0.2"
+    "visbol-react": "^1.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
