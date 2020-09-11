@@ -4,8 +4,6 @@
   "description": "SBOLv rendering in JavaScript",
   "main": "index.js",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "sboljs": "^2.1.9",
     "visbol": "1.4.30",
     "visbol-react": "^1.0.2"
@@ -15,13 +13,12 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babelify": "^10.0.0",
-    "browserify": "^16.5.1"
+    "browserify": "^16.5.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "scripts": {
-    "build": "browserify index.js -t babelify -o bundle.js",
-    "browser": "browserify browser.js -t babelify -o browserbuild.js",
-    "synbiohub": "browserify synbiohub.js -t babelify -o synbiohubbuild.js",
-    "webpack": "webpack --mode production --display-modules"
+    "build": "browserify browser.js -t babelify -o browserbuild.js"
   },
   "repository": {
     "type": "git",
