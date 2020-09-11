@@ -4,6 +4,7 @@ module.exports = {
     entry: './lib/rendering/Rendering.js',
     output: {
         filename: 'rendering.js',
+        globalObject: "this",
         libraryTarget: 'umd'
     },
     module: {
@@ -17,25 +18,8 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        alias: {
-            'react': path.resolve(__dirname, './node_modules/react') ,
-            'react-dom': path.resolve(__dirname, './node_modules/react-dom')
-        }
-    },
     externals: {
-        // Don't bundle react or react-dom
-        'react': {
-            commonjs: "react",
-            commonjs2: "react",
-            amd: "React",
-            root: "React"
-        },
-        'react-dom': {
-            commonjs: "react-dom",
-            commonjs2: "react-dom",
-            amd: "ReactDOM",
-            root: "ReactDOM"
-        }
+        // Don't bundle react
+        react: 'react'
     }
 };

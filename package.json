@@ -6,23 +6,16 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-parametric-svg": "^0.1.7",
     "sboljs": "^2.1.9",
-    "visbol": "1.4.29"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "visbol": "1.4.30",
+    "visbol-react": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^8.1.0",
     "babelify": "^10.0.0",
-    "browserify": "^16.5.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "browserify": "^16.5.1"
   },
   "scripts": {
     "build": "browserify index.js -t babelify -o bundle.js",

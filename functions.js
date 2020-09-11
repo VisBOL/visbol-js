@@ -1,10 +1,10 @@
-import prepareDisplay from './lib/design/prepareDisplay';
-import SBOLDocument from 'sboljs';
-import { getDisplayList as getDisplayListComponents } from 'visbol';
-import { getInteractionList } from 'visbol';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Rendering from './dist/rendering';
+const prepareDisplay = require('./lib/design/prepareDisplay');
+const SBOLDocument = require('sboljs');
+const getDisplayListComponents = require('visbol').getDisplayList;
+const getInteractionList = require('visbol').getInteractionList;
+const React = require('react');
+const ReactDOM = require('react-dom');
+import Rendering from 'visbol-react';
 
 const getDisplayList = getDisplayListComponents.getDisplayList;
 
@@ -13,6 +13,7 @@ const getDisplayList = getDisplayListComponents.getDisplayList;
  * @param {String} source 
  */
 function createDisplay(source) {
+    console.log(Rendering);
     SBOLDocument.loadRDF(source, function (err, sbol) {
         if (err) {
             console.log('error occured: ');
@@ -53,13 +54,18 @@ function createDisplay(source) {
 
             console.log(displayList);
             const display = prepareDisplay(displayList);
-            const container = document.getElementById('design');
-            ReactDOM.render(<Rendering display={display} />, container);
+            if(typeof window !== 'undefined') {
+                const container = document.getElementById('design');
+                ReactDOM.render(
+                    React.createElement(Rendering, {display: display}, null),
+                    container
+                );
+            }
         }
 
     })
 }
 
-export {
-    createDisplay as renderSBOL
+module.exports = {
+    renderSBOL: createDisplay
 }

@@ -1,13 +1,9 @@
-import prepareDisplay from './lib/design/prepareDisplay';
-import Rendering from './dist/rendering';
-import { renderSBOL } from './functions';
-import { getDisplayList } from 'visbol';
-import { getInteractionList } from 'visbol';
+const prepareDisplay = require('./lib/design/prepareDisplay');
+const getDisplayList = require('visbol').getDisplayList;
+const getInteractionList = require('visbol').getInteractionList;
 
-export {
+module.exports = {
     prepareDisplay,
-    Rendering,
-    renderSBOL,
     getDisplayList,
-    getInteractionList
+    getInteractionList,
 }
